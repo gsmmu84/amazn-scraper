@@ -1,39 +1,35 @@
 const express = require('express');
-const axios = require('axios');
-const cheerio = require('cheerio');
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get('/s', async (req, res) => {
-  const asin = req.query.asin;
-  if (!asin) return res.status(400).json({ error: 'ASIN required' });
+app.get('/', (req, res) => {
+  res.send('✅ Scraper server is live and working!');
+});
 
-  const url = `https://www.amazon.com/dp/${asin}`;
+app.get('/s', (req, res) => {
+  const { asin } = req.query;
 
-  try {
-    const { data } = await axios.get(url, {
-      headers: {
-        'User-Agent':
-          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36',
-        'Accept-Language': 'en-US,en;q=0.9',
-      },
-    });
+  if (!asin) {
+    return res.status(400).json({ error: 'ASIN is required' });
+  }
 
-    const $ = cheerio.load(data);
-    const title = $('#productTitle').text().trim();
-    const bullets = $('#feature-bullets li span')
-      .map((i, el) => $(el).text().trim())
-      .get()
-      .filter(Boolean)
-      .slice(0, 5); // get first 5 bullets
+  res.json({
+    asin,
+    title: `Test Title for ASIN ${asin}`,
+    bullets: [
+      "This is a test bullet 1",
+      "This is a test bullet 2"
+    ],
+    description: "This is a test product description.",
+    reviews: ["Great product!", "Loved it!"],
+    images: ["https://via.placeholder.com/300x300"]
+  });
+});
 
-    res.json({
-      asin,
-      title: title || 'Title not found',
-      bullets: bullets.length ? bullets : ['No bullets found'],
-    });
-  } catch (err) {
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
+});
+
     res.status(500).json({ error: 'Failed to fetch product info', details: err.message });
   }
 });
