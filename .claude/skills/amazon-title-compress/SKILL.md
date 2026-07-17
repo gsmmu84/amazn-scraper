@@ -1,219 +1,182 @@
 ---
 name: amazon-title-compress
-description: Compress an Amazon product title to 75 characters or less and produce a matching 125-character Item Highlights string, using category-specific priority rules. Accepts single (title + URL) or batch (multiple title + URL pairs) input. Preserves the highest-value SEO and conversion elements in the title; routes supporting claims to Item Highlights where they remain searchable.
+description: Compress Amazon product titles to 75 characters or less (July 27, 2026 limit) with a matching 125-character Item Highlights string, validated against the seller's real keyword performance data (ad search-term reports + Search Query Performance). Use whenever the user wants to shorten, rewrite, or audit Amazon titles, prep for the 75-char limit, or asks about title keyword optimization. Accepts single or batch input; front-loads titles so the full sales message survives 70-character truncation.
 ---
 
 # Amazon Title Compress
 
 Rewrite Amazon product titles to meet the July 27, 2026 75-character limit while retaining the highest-value keywords, differentiators, and conversion signals. Route overflow to Item Highlights (125 chars), which is searchable and visible in search results and on product detail pages.
 
+Two principles drive every rewrite, both learned from live testing on real catalogs:
+
+1. **Assume shoppers see only the first ~70 characters.** Mobile search results truncate titles. The complete sales message (keyword + size/spec + pack + hook) must land by roughly character 60; only the lowest-value element may sit in the truncation zone.
+2. **Validate keywords with data, not judgment.** When the seller's ad search-term data and SQP (Brand Analytics Search Query Performance) are available, the words in the title are chosen by what actually converts and where market volume sits — not by what sounds right. Judgment-only compression missed a 23,000-volume query on a real listing that data caught immediately.
+
 ## Inputs
 
-**Single mode:**
-- Original title (pasted)
-- Amazon listing URL or ASIN
+**Single mode:** original title + Amazon listing URL or ASIN.
 
-**Batch mode:** paste a list using either format — auto-detect:
-```
-Title 1 | https://www.amazon.com/dp/ASIN1
-Title 2 | https://www.amazon.com/dp/ASIN2
-```
-or CSV:
-```
-title,url
-"Product Title 1",https://www.amazon.com/dp/ASIN1
-"Product Title 2",https://www.amazon.com/dp/ASIN2
-```
+**Batch mode:** a pasted list (`Title | URL` per line, or CSV with title,url columns), a spreadsheet, or — if a catalog analytics MCP is connected — pull titles directly from the seller's catalog (e.g., top sellers by revenue).
 
-If only a title is pasted with no URL, ask for the URL or category before proceeding — category is required for correct prioritization.
+If only a title is given with no URL/ASIN, ask for the URL or category — category drives prioritization.
 
-## Step 1 — Fetch Category from Listing
+## Step 1 — Category
 
-For each listing:
-1. Extract the ASIN from the URL.
-2. Fetch the listing page (WebFetch) to capture:
-   - Category breadcrumb (this is the primary category signal)
-   - Existing bullet points / About This Item
-   - Product details section (materials, dimensions, variants, certifications)
-3. If the page is blocked or returns no breadcrumb, ask the user: "I couldn't read the category from the listing — what category is this listed under?"
-4. Map the breadcrumb to one of the Category Groups below. Use the deepest matching level (e.g. "Tools & Home Improvement > Power & Hand Tools > Drills" maps to Tools).
+For each listing, determine the category group (see Step 4 tables):
+1. If a catalog/analytics tool is connected, use its category data.
+2. Otherwise fetch the listing page (WebFetch) and read the breadcrumb.
+3. If blocked, infer from the title when unambiguous (e.g. "car magnet" → Automotive); ask only when genuinely uncertain.
 
-## Step 2 — Parse the Original Title
+## Step 2 — Pull Keyword Performance Data
 
-Break the original title into components:
-- **Brand** — registered brand/trade name
-- **Model** — model number or product line name (Electronics, Tools, Automotive)
-- **Core ID** — the thing it is (e.g. "Drill Driver", "Moisturizing Cream", "Dog Food")
-- **Key Spec** — primary measurable differentiator (dose, capacity, wattage, size, count, weight)
-- **Ingredients / Materials** — specific substances or materials (Berberine HCL, 100% Cotton, Stainless Steel)
-- **Benefit Claim** — functional benefit (GLP-1 Support, Noise Canceling, Waterproof)
-- **Variant** — color, flavor, scent, size variant
-- **Trust Signal** — certifications, origin (Made in USA, USDA Organic, NSF Certified, UL Listed)
-- **Category Descriptor** — generic category label that duplicates the browse node (e.g. "Herbal Supplements", "Power Tool", "Skincare Product") — almost always droppable
+This step separates a good rewrite from a guess. Gather two views per product (or product family — siblings sharing a keyword universe, like size variants, can share one pull):
 
-## Step 3 — Apply Category Priority Rules
+**A. Ad search terms (what converts):** top search terms by orders, last 30 days, from Sponsored Products search term reports. If an ads analytics MCP (e.g. Aakar) is connected, query it — filter campaigns by family (`campaign_name ILIKE '%flag%'`), aggregate orders/sales per search term. Otherwise ask the user to paste their Seller Central > Advertising > Search Term Report export.
 
-Use the category group detected in Step 1. Follow the priority order: **Must-Keep → High-Value → Item Highlights → Drop**.
+**B. SQP (where the market is):** Brand Analytics Search Query Performance for the ASIN — search query, weekly volume, the ASIN's impression share, market purchases, ASIN purchases. Via MCP if available; otherwise ask for the Brand Analytics SQP export. Note SQP weeks adjacent to a holiday inflate seasonal terms — judge rankings, not raw volumes.
 
----
+If the user has neither, proceed on category rules alone but say plainly that keywords are unvalidated.
+
+**How to use the data:**
+- The highest-converting phrase for the product opens the title.
+- Every distinct converting **token** (word) must appear somewhere across title + Item Highlights. Watch for near-miss tokens: "magnet" in the title does not cover searches for "magnetic"; dropping "decal" abandons every "car decal" query. Check tokens, not phrases — Amazon matches on words.
+- High-volume queries with low impression share (under ~1%) are white space: work the missing token into the title if it fits, otherwise into Item Highlights, and flag it to the user as a PPC opportunity too.
+- Word order within a phrase doesn't need mirroring ("frequent stops car magnet" vs "car magnets frequent stops" — same tokens).
+
+## Step 3 — Parse the Original Title
+
+Break the original into components: Brand, Model, Core ID (what it is), Key Spec (size/dose/capacity/count), Ingredients/Materials, Benefit Claim, Variant (color/flavor), Trust Signal (Made in USA, certifications), Category Descriptor (generic label duplicating the browse node — almost always droppable).
+
+## Step 4 — Category Priority Rules
+
+Priority order: **Must-Keep → High-Value → Item Highlights → Drop**.
 
 ### Apparel & Accessories
-**Must-Keep:** Brand, Gender/Age group, Core item type, Primary material (if distinctive — "Merino Wool", "100% Cotton"), Size indicator if in the title
-**High-Value:** Color/pattern, Fit type (Slim Fit, Relaxed), Quantity (3-Pack)
+**Must-Keep:** Gender/Age group, Core item type, Primary material (if distinctive), Size indicator
+**High-Value:** Color/pattern, Fit type, Quantity
 **Item Highlights:** Care instructions, Additional colors, Style details, Season
-**Drop:** Generic descriptors ("Comfortable", "High Quality", "Fashion"), Category label ("Shirt", "Pants" when the item type already covers it)
-**Abbreviations OK:** XS, S, M, L, XL, XXL, 2XL, 3XL, oz, in, ft
-
----
+**Drop:** Generic descriptors ("Comfortable", "High Quality"), redundant category label
+**Abbreviations OK:** XS–3XL, oz, in, ft
 
 ### Automotive
-**Must-Keep:** Brand, Product name, Key spec/grade (5W-30, SAE 30, 2000 PSI), Size/quantity
-**High-Value:** Compatibility note (if short — "for Toyota", "Universal Fit"), Certification (API SN)
+**Must-Keep:** Product name, Key spec/grade, Size/quantity
+**High-Value:** Compatibility note (if short), Certification
 **Item Highlights:** Full vehicle compatibility list, Additional specs, Bundle contents
-**Drop:** Generic ("Motor Oil", "Tire Inflator" when already in product name), "High Performance"
+**Drop:** Generic restatements, "High Performance"
 **Abbreviations OK:** qt, gal, oz, PSI, RPM, V, W, Ah
 
----
-
 ### Baby Products
-**Must-Keep:** Brand, Product name, Key feature/mode count ("4-in-1"), Color/pattern
-**High-Value:** Age/weight range, Size stage (Newborn, Infant, Toddler)
-**Item Highlights:** Weight limits, Safety certifications (JPMA, ASTM), Machine washable, Included accessories
-**Drop:** Generic reassurance ("Safe", "Comfortable", "Soft")
+**Must-Keep:** Product name, Key feature/mode count, Color/pattern
+**High-Value:** Age/weight range, Size stage
+**Item Highlights:** Weight limits, Safety certifications, Machine washable, Included accessories
+**Drop:** Generic reassurance ("Safe", "Comfortable")
 **Abbreviations OK:** lbs, oz, in
 
----
-
 ### Beauty & Personal Care
-**Must-Keep:** Brand, Product name, Skin/hair type if specific (Dry Skin, Oily Skin), Size/count
-**High-Value:** Key active ingredient if it's the point of the product (Vitamin C, Hyaluronic Acid, Retinol), Dermatologist tested, Fragrance-free
-**Item Highlights:** Full ingredient callouts, Certifications (EWG, Cruelty-Free, Vegan), For use with instructions, Regimen placement (AM/PM)
-**Drop:** Generic ("Natural", "Clean Beauty", "Best Seller"), redundant category label
+**Must-Keep:** Product name, Skin/hair type if specific, Size/count
+**High-Value:** Key active ingredient, Dermatologist tested, Fragrance-free
+**Item Highlights:** Full ingredient callouts, Certifications, Regimen placement
+**Drop:** "Natural", "Clean Beauty", redundant category label
 **Abbreviations OK:** oz, fl oz, mL, g
 
----
-
 ### Electronics & Computers
-**Must-Keep:** Brand, Model number/name, Primary function (Noise Canceling Headphones, 4K Monitor), Key spec (resolution, storage, wattage, connectivity)
-**High-Value:** Color/finish, Compatibility signal (USB-C, Bluetooth 5.3), Generation/version
-**Item Highlights:** Battery life, Included accessories, OS compatibility, Warranty details
-**Drop:** Marketing ("Next-Gen", "Ultra", "Pro" unless it's the official product name), redundant "Smart" unless it distinguishes from a dumb version
-**Abbreviations OK:** GB, TB, MB, GHz, MHz, W, V, Ah, mAh, in, mm, ms, Hz, USB, HDMI, 4K, 8K
-
----
+**Must-Keep:** Model number/name, Primary function, Key spec
+**High-Value:** Color/finish, Compatibility signal, Generation/version
+**Item Highlights:** Battery life, Included accessories, OS compatibility, Warranty
+**Drop:** Marketing ("Next-Gen", "Ultra"), redundant "Smart"
+**Abbreviations OK:** GB, TB, GHz, W, mAh, in, mm, Hz, USB, HDMI, 4K, 8K
 
 ### Grocery & Gourmet Food
-**Must-Keep:** Brand, Product name, Flavor/variety, Net weight or count, Pack size
-**High-Value:** Dietary claim (Gluten-Free, Keto, Non-GMO, Organic) — only if it's a primary purchase driver for this product
-**Item Highlights:** Full certifications, Allergen info, Nutritional highlights, Storage/preparation
-**Drop:** Generic ("Delicious", "All-Natural" without certification, "Artisan")
+**Must-Keep:** Product name, Flavor/variety, Net weight or count, Pack size
+**High-Value:** Dietary claim (only if primary purchase driver)
+**Item Highlights:** Certifications, Allergen info, Nutrition, Storage
+**Drop:** "Delicious", "All-Natural" without certification, "Artisan"
 **Abbreviations OK:** oz, fl oz, lb, g, kg, mL, L, pk, ct
 
----
-
 ### Health & Household / Supplements
-**Must-Keep:** Brand, Active ingredient + form (Berberine HCL, Magnesium Glycinate — form specificity matters for search), Dose (1500mg), Count (60ct, 90ct)
-**High-Value:** Primary benefit (GLP-1 Support, Sleep Support) — keep if space allows
-**Item Highlights:** Additional ingredients, Origin (Made in USA), Certifications (NSF, USP, GMP), Usage instructions, Dietary callouts (Vegan, Non-GMO)
-**Drop:** Generic category label ("Herbal Supplement", "Dietary Supplement", "Vitamin"), "All Natural", "Pure"
-**Abbreviations OK:** mg, mcg, IU, g, ct, cap, tab, soft, oz
-
----
+**Must-Keep:** Active ingredient + form (form specificity matters for search), Dose, Count
+**High-Value:** Primary benefit — keep if space allows
+**Item Highlights:** Additional ingredients, Origin, Certifications (NSF, USP, GMP), Dietary callouts
+**Drop:** "Herbal Supplement", "Dietary Supplement", "All Natural", "Pure"
+**Abbreviations OK:** mg, mcg, IU, g, ct, cap, tab, oz
 
 ### Home & Kitchen
-**Must-Keep:** Brand, Product name, Key feature or mode count ("7-in-1", "Self-Cleaning"), Capacity/size
-**High-Value:** Material (Stainless Steel, Cast Iron, BPA-Free), Color if it's a primary driver
-**Item Highlights:** Dishwasher safe, Oven safe temp, Included accessories, Warranty, Compatible appliances
-**Drop:** "Perfect For", "Ideal For", generic "Kitchen Essential"
+**Must-Keep:** Product name, Key feature or mode count, Capacity/size
+**High-Value:** Material, Color if primary driver
+**Item Highlights:** Dishwasher safe, Oven safe temp, Included accessories, Warranty
+**Drop:** "Perfect For", "Ideal For", "Kitchen Essential"
 **Abbreviations OK:** qt, oz, in, ft, sq ft, W, V, lb
 
----
-
 ### Office Products & Stationery
-**Must-Keep:** Brand, Product name, Key spec (yield, page count, capacity), Count/pack size
-**High-Value:** Compatibility (printer model series if short), Color
-**Item Highlights:** Full compatibility list, ISO yield, Page coverage spec
-**Drop:** Generic ("Office Essential", "Professional Quality")
-**Abbreviations OK:** pk, ct, in, mm, lb (paper weight), XL, HY (High Yield)
-
----
+**Must-Keep:** Product name, Key spec (yield, count, capacity), Count/pack size
+**High-Value:** Compatibility (if short), Color
+**Item Highlights:** Full compatibility list, ISO yield, Coverage spec
+**Drop:** "Office Essential", "Professional Quality"
+**Abbreviations OK:** pk, ct, in, mm, lb, XL, HY
 
 ### Pet Supplies
-**Must-Keep:** Brand, Product name, Target animal + life stage (Adult Dog, Senior Cat, Puppy), Primary protein/main ingredient, Size/weight
-**High-Value:** Special formula callout (Grain-Free, Limited Ingredient, Sensitive Stomach) if it's the purchase reason
-**Item Highlights:** Guaranteed analysis, AAFCO statement, Full ingredient list, Certifications
-**Drop:** "Premium", "Gourmet", "Wholesome", generic "Dog Food" when "Chicken & Rice Dog Food" already covers it
+**Must-Keep:** Product name, Target animal + life stage, Primary protein/ingredient, Size/weight
+**High-Value:** Special formula callout if it's the purchase reason
+**Item Highlights:** Guaranteed analysis, AAFCO statement, Ingredients, Certifications
+**Drop:** "Premium", "Gourmet", "Wholesome", redundant category label
 **Abbreviations OK:** lb, lbs, oz, kg, ct
 
----
-
 ### Sports & Outdoors / Exercise & Fitness
-**Must-Keep:** Brand, Product name, Key spec (weight capacity, resistance level, volume, distance rating), Size/color if it drives the purchase
-**High-Value:** Material (if distinctive — Titanium, Carbon Fiber, 600D Polyester), Gender/age if targeted
-**Item Highlights:** Dimensions, Weight, Warranty, Compatible accessories, Activity-specific callouts
-**Drop:** "High Performance", "Professional Grade" (unless it's a certified pro product)
+**Must-Keep:** Product name, Key spec (capacity, resistance, volume), Size/color if it drives purchase
+**High-Value:** Distinctive material, Gender/age if targeted
+**Item Highlights:** Dimensions, Weight, Warranty, Compatible accessories
+**Drop:** "High Performance", "Professional Grade"
 **Abbreviations OK:** lbs, kg, oz, L, gal, in, ft, cm, mm
 
----
-
 ### Tools & Home Improvement
-**Must-Keep:** Brand, Model number (if well-known) OR product name, Type (Cordless Drill Driver, Impact Wrench), Key spec (voltage, torque, PSI, CFM)
-**High-Value:** Chuck size or bit size, Speed/variable speed, Battery included flag (if a major differentiator)
-**Item Highlights:** Included accessories and battery/charger info, Kit contents, Warranty, Compatibility (FLEXVOLT, POWERSTATE)
+**Must-Keep:** Model number OR product name, Type, Key spec (voltage, torque, PSI)
+**High-Value:** Chuck/bit size, Speed, Battery-included flag
+**Item Highlights:** Accessories/battery info, Kit contents, Warranty, Platform compatibility
 **Drop:** "Powerful", "Professional", "Heavy-Duty" unless technically specified
 **Abbreviations OK:** V, Ah, in, ft, lbs, RPM, PSI, CFM, HP, W
 
----
-
 ### Toys & Games
-**Must-Keep:** Brand, Product/set name, Piece count (for LEGO-type sets) or Key feature, Age range
-**High-Value:** Theme or character name if it drives purchase, Battery requirements (Battery-Free is a selling point)
-**Item Highlights:** Dimensions (assembled/box), Battery specs and count, Choking hazard note if relevant, Educational skill callouts
-**Drop:** "Fun", "Educational" as standalone words (show it, don't say it)
+**Must-Keep:** Product/set name, Piece count or key feature, Age range
+**High-Value:** Theme/character if it drives purchase, Battery requirements
+**Item Highlights:** Dimensions, Battery specs, Choking hazard note, Educational callouts
+**Drop:** "Fun", "Educational" as standalone words
 **Abbreviations OK:** pc, pcs, in, cm
 
----
+## Step 5 — Title Layout
 
-## Step 4 — Compression Rules (Universal)
+Build the title in this order, and keep the complete message inside the first ~60 characters:
 
-Apply to all categories after priority mapping:
+```
+[Top converting keyword phrase] [size/spec] [pack] | [hook] | [trust signal]
+```
 
-**Character counting:** Count every character including spaces. The limit is 75 for the title, 125 for Item Highlights.
+- **Open with the highest-converting search phrase** from Step 2 (or the Must-Keep core from Step 4 if no data). Never open with the brand.
+- **Brand leaves the title entirely.** Amazon displays the Brand field on its own line under the title, so brand-in-title pays 12–16 characters for information the shopper already sees. Spend those characters on a converting keyword or trust signal instead. Exception: keep the brand only if the user says branded searches matter for this product or the data shows the brand name itself converts.
+- **The hook** is the conversion driver: variant/color for standard products, the action for customs ("Upload Logo"), the audience for novelty ("Funny Student Driver").
+- **Trust signal closes the title** — for most US catalogs that's "Made in USA" (11 chars). If it pushes the title past 70, use "USA Made" (8 chars) so nothing is clipped. Only claim origin the listing actually claims.
+- Separate components with ` | ` or single spaces. No em dashes, no hyphens-as-separators, no commas between major components.
 
-**Safe abbreviations (all categories):**
-- Units: oz, fl oz, lb, lbs, g, kg, mg, mcg, mL, L, qt, gal, in, ft, cm, mm, W, V, Ah, mAh
-- Count: ct, pk, ea, pc, pcs
-- Size: XS, S, M, L, XL, XXL, 2XL, 3XL
-- Common: USB, HDMI, LED, LCD, AC, DC, AI, UV, IR, BPA, NSF, GMP, USDA
+## Step 6 — Compression Rules (Universal)
 
-**Separators:** Use a single space or ` | ` (pipe with spaces) between components. Do not use em dashes, hyphens as separators, or commas to separate major components (commas OK within a component list like "Magnesium Glycinate, Ceylon Cinnamon").
+**Counting:** every character counts, including spaces. 75 max title, 125 max Item Highlights — but treat 70 as the visibility budget for the title's message.
 
-**Never do:**
-- Truncate mid-word to hit the limit
-- Keyword-stuff with synonyms ("Weight Loss Supplement Fat Burner Diet Pills")
-- Use ALL CAPS except for established acronyms and brand names that are stylized that way
-- Include promotional language: "Best", "#1", "Top Rated", "Sale", "Free Shipping"
-- Repeat the brand in the title if it's already in the Brand field on Amazon (though in practice, leading with brand in the title is still common and acceptable)
-- Include special characters other than: `+`, `&`, `/`, `#`, `|`, `%`, `(`, `)`
+**Safe abbreviations:** units (oz, fl oz, lb, lbs, g, kg, mg, mcg, mL, L, qt, gal, in, ft, cm, mm, W, V, Ah, mAh), counts (ct, pk, ea, pc, pcs), sizes (XS–3XL), common acronyms (USB, HDMI, LED, LCD, AC, DC, AI, UV, IR, BPA, NSF, GMP, USDA). Write dimensions compactly: `18x24 in`, not `18" x 24"`.
 
-**Compression tactics (use in order):**
-1. Drop the category descriptor first — it duplicates the browse node
-2. Move trust signals and certifications to Item Highlights
-3. Use abbreviations for units and counts
-4. Consolidate benefit claims — keep the strongest one, move secondary claims to Item Highlights
-5. Move compatibility details to Item Highlights unless they are the primary search filter (e.g., "for iPhone 15")
-6. Trim flavor/color from title if the product has a variation page with that attribute already (but keep it if it's a single-variant listing)
+**Never:** truncate mid-word, keyword-stuff synonyms, ALL CAPS (except acronyms/stylized brands), promotional language ("Best", "#1", "Sale"), special characters other than `+ & / # | % ( )`.
 
-## Step 5 — Build Item Highlights
+**Compression order:** drop the category descriptor → move trust signals to Item Highlights (unless one closes the title per Step 5) → abbreviate units → consolidate benefit claims → move compatibility details to Item Highlights → trim variant attributes already handled by a variation page.
 
-Item Highlights should:
-- Pick up everything dropped from the title that is still searchable and conversion-relevant
-- Not repeat what is already in the title
-- Read as a natural, useful string — not a keyword dump
-- Stay at or under 125 characters
-- Lead with the highest-conversion overflow content (certifications, origin, secondary ingredients, key claims)
+## Step 7 — Item Highlights
 
-## Step 6 — Output
+- Carry every still-searchable token that left the title; never repeat a token already in the title (wasted characters).
+- Cover the near-miss tokens from Step 2 ("magnetic", "decal", "personalized"-type words).
+- Read as natural, useful text — not a keyword dump. Lead with the highest-conversion overflow.
+
+## Step 8 — Verify by Script
+
+Character counts done by eye are wrong often enough to matter — a title that's 71 chars clips at 70. Before presenting results, run a quick script (node/python) that checks every row: title ≤ 75, Item Highlights ≤ 125, brand not present in title (unless the exception applies), and computes the exact 70-char truncation preview. Fix violations and re-run until clean.
+
+## Step 9 — Output
 
 **Single listing:**
 ```
@@ -223,6 +186,9 @@ TITLE ([X]/75 chars):
 ITEM HIGHLIGHTS ([X]/125 chars):
 [Item Highlights string]
 
+KEYWORD EVIDENCE:
+- [term]: [orders/volume/share data that justified it]
+
 WHAT MOVED AND WHY:
 - [Component]: moved to Item Highlights — [reason]
 - [Component]: dropped — [reason]
@@ -231,20 +197,13 @@ ORIGINAL ([X] chars):
 [Original title]
 ```
 
-**Batch:**
-Output a numbered block per listing using the same format, then a summary table:
+**Batch:** deliver as a spreadsheet (Google Sheet or xlsx) with columns:
+`# | ASIN | SKU | Category | Sales | Units | Original Title | Orig Chars | New Title | New Chars | What Shoppers See at 70 Chars | Item Highlights | IH Chars | Keyword Evidence & Notes`
 
-```
-| # | ASIN | Category | Orig Chars | New Title Chars | IH Chars |
-|---|------|----------|------------|-----------------|----------|
-| 1 | ... | ... | 162 | 71 | 98 |
-```
+The 70-char preview column shows the literal truncated view (with `…` if clipped) so the user can eyeball each row as a mobile shopper would see it. The evidence column cites the specific data behind each choice (e.g. `"custom car magnet" 28 ad orders; "personalized" 3.2% SQP share`).
+
+Flag separately any white-space findings (high-volume, low-share queries) — they're PPC opportunities beyond the title work.
 
 ## When to Ask Questions
 
-Ask only if:
-- The listing URL is blocked, returns no breadcrumb, and the category cannot be inferred from the title
-- The original title is missing a key piece of information that would materially change compression choices (e.g., no count/size visible anywhere)
-- A batch input has formatting that cannot be auto-parsed into title + URL pairs
-
-Do not ask permission to proceed. Do not ask the user to verify the category if you can read it from the breadcrumb.
+Ask only if: the category can't be determined; a key spec is missing that would change decisions; batch input can't be parsed; or the user has no performance data and you need them to choose between proceeding unvalidated or pasting exports. Do not ask permission to proceed.
