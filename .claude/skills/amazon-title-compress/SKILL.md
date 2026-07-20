@@ -147,20 +147,24 @@ Priority order: **Must-Keep → High-Value → Item Highlights → Drop**.
 Build the title in this order, and keep the complete message inside the first ~60 characters:
 
 ```
-[Top converting keyword phrase] [size/spec] [pack] | [hook] | [trust signal]
+[Top converting keyword phrase] [size/spec] [pack], [hook], [trust signal]
 ```
 
 - **Open with the highest-converting search phrase** from Step 2 (or the Must-Keep core from Step 4 if no data). Never open with the brand.
 - **Brand leaves the title entirely.** Amazon displays the Brand field on its own line under the title, so brand-in-title pays 12–16 characters for information the shopper already sees. Spend those characters on a converting keyword or trust signal instead. Exception: keep the brand only if the user says branded searches matter for this product or the data shows the brand name itself converts.
 - **The hook** is the conversion driver: variant/color for standard products, the action for customs ("Upload Logo"), the audience for novelty ("Funny Student Driver").
 - **Trust signal closes the title** — for most US catalogs that's "Made in USA" (11 chars). If it pushes the title past 70, use "USA Made" (8 chars) so nothing is clipped. Only claim origin the listing actually claims.
-- Separate components with ` | ` or single spaces. No em dashes, no hyphens-as-separators, no commas between major components.
+- **Separate components with ", "** (comma + space). Commas read like natural product copy — the right voice for consumer and gift audiences — and cost one character less than " | " per separator. Search ranking is identical either way (Amazon indexes words, not separators), so this is a readability call: reserve pipes for spec-driven categories (electronics, supplements) where fast segment-scanning beats flow, and only if the seller prefers them. Never use em dashes or hyphens as separators.
+- **Keep components internally comma-free** so the separators stay unambiguous — write "Red White & Blue", not "Red, White, and Blue". If a design name inherently contains commas, switch that listing to pipe separators rather than blurring the components.
+- **When over budget, degrade in this order:** "Made in USA" → "USA Made" → drop the trust signal → downgrade "Inch" → "in" (Step 6) → drop the hook → only then shorten the keyword phrase, never mid-word and never breaking a joke or design name mid-phrase.
 
 ## Step 6 — Compression Rules (Universal)
 
 **Counting:** every character counts, including spaces. 75 max title, 125 max Item Highlights — but treat 70 as the visibility budget for the title's message.
 
-**Safe abbreviations:** units (oz, fl oz, lb, lbs, g, kg, mg, mcg, mL, L, qt, gal, in, ft, cm, mm, W, V, Ah, mAh), counts (ct, pk, ea, pc, pcs), sizes (XS–3XL), common acronyms (USB, HDMI, LED, LCD, AC, DC, AI, UV, IR, BPA, NSF, GMP, USDA). Write dimensions compactly: `18x24 in`, not `18" x 24"`.
+**Safe abbreviations:** units (oz, fl oz, lb, lbs, g, kg, mg, mcg, mL, L, qt, gal, ft, cm, mm, W, V, Ah, mAh), counts (ct, pk, ea, pc, pcs), sizes (XS–3XL), common acronyms (USB, HDMI, LED, LCD, AC, DC, AI, UV, IR, BPA, NSF, GMP, USDA).
+
+**Dimensions — write "Inch", not `"` and not "in":** `18x24 Inch`, not `18" x 24"`. The quote character is on Amazon's discouraged list, and "Inch" is a real search token ("5 inch magnet" is a genuine query) while "in" is a stopword Amazon ignores as the preposition. Capitalize it, no period ("In." reads as a typo). Downgrade to "in" only when "Inch" would push the title past 75 and the degradation ladder (Step 5) has nothing cheaper left to give — prefer losing the unit's searchability over losing a content word.
 
 **Never:** truncate mid-word, keyword-stuff synonyms, ALL CAPS (except acronyms/stylized brands), promotional language ("Best", "#1", "Sale"), special characters other than `+ & / # | % ( )`.
 
@@ -171,6 +175,8 @@ Build the title in this order, and keep the complete message inside the first ~6
 - Carry every still-searchable token that left the title; never repeat a token already in the title (wasted characters).
 - Cover the near-miss tokens from Step 2 ("magnetic", "decal", "personalized"-type words).
 - Read as natural, useful text — not a keyword dump. Lead with the highest-conversion overflow.
+- **Same separator rule as titles: commas, flowing like a sentence.** Write "Heavy duty magnetic decal for car, truck, SUV or fridge, full color UV printed" — use "and"/"or" before the last item of an internal list so the phrase boundaries stay readable without pipes. If a highlight segment genuinely needs internal commas that would blur into the separators, restructure the phrase (drop to "or any magnetic surface") rather than reaching for pipes.
+- Apply the "Inch" rule here too when dimensions appear — highlights have more room, so the fallback to "in" should never be needed.
 
 ## Step 8 — Verify by Script
 
