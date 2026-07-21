@@ -127,3 +127,7 @@ The memory keeps growing every time you talk to it. The interview in Part 2 was 
 ## Coming next: Claude Projects
 
 In the follow-up guide we'll set you up in **Claude** (by Anthropic) and use its **Projects** and project instructions to break all of this down into specifics — one project per goal, each with its own standing instructions and files. For now, get good at ChatGPT. When the time comes, ask it to *"write a one-page briefing about me that I can give to another AI assistant"* and you'll carry everything over in one paste.
+
+---
+
+**Guide by Gavriel Soltan.** Want more help putting AI to work in your business — kept simple, no tech overwhelm? Text or call me: **917-533-5238**.
