@@ -130,4 +130,4 @@ In the follow-up guide we'll set you up in **Claude** (by Anthropic) and use its
 
 ---
 
-**Guide by Gavriel Soltan.** Trying to figure out where AI fits in your business and what to actually do first? That's what I do — I research what works, map out the path, and hand you exact instructions you can run with yourself. Text me: **917-533-5238**.
+**Guide by Gavriel Soltan.** Helping business owners figure out where to start with AI — the right tools, a clear framework, and exact next steps you execute yourself. Text me: **917-533-5238**.
