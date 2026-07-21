@@ -96,6 +96,18 @@ If it says it can't access something, go back to Settings → Connectors and mak
 
 **A note on trust:** you're giving an app read access to your email. That's the trade for the usefulness. You can disconnect any connector at any time from the same Settings → Connectors screen, and you can delete memories any time. Don't connect a work account that has data your employer wouldn't want shared with a third-party service.
 
+### Build your task & project log
+
+One sheet, one job: nothing you care about gets lost. Every task and every long-term project goes in — and because the AI can now read your Sheets, it can pull them back up for you in the car.
+
+1. In Google Sheets, create a spreadsheet named **Task & Project Log** with these columns: **Date · Task or project · Quick task or long-term · Next step · Status**.
+2. Tell ChatGPT it exists: *"I keep a Google Sheet called Task & Project Log — that's where everything I need to do lives. Whenever I ask about my tasks or projects, read that sheet first."*
+3. Make it a habit: any time a task or project pops into your head, add a row — ten seconds on your phone. If you're driving, just tell the AI about it and log it when you're parked.
+
+Then, on your next drive, say:
+
+> "Open my Task & Project Log sheet. Pick one or two projects I could actually move forward right now from the car, and let's work on them — or at least build out a framework for one, step by step."
+
 ---
 
 ## What to do in your first week
@@ -110,6 +122,6 @@ The habit that makes this stick: **when something comes up, ask the AI first.** 
 
 The memory keeps growing every time you talk to it. The interview in Part 2 was just the starting file — keep adding to it.
 
-## What about Claude?
+## Coming next: Claude Projects
 
-ChatGPT is the right place to start. Once you're comfortable, it's worth also installing **Claude** (by Anthropic — same idea, different strengths; many people find it better for writing, longer documents, and more careful reasoning). It works the same way: app store → "Claude" by Anthropic → sign in with Google. You can paste in the summary of who you are (ask ChatGPT: *"Write a one-page briefing about me that I can give to another AI assistant"*) so you don't have to start from scratch. But don't split your attention on day one — get good at one first.
+In the follow-up guide we'll set you up in **Claude** (by Anthropic) and use its **Projects** and project instructions to break all of this down into specifics — one project per goal, each with its own standing instructions and files. For now, get good at ChatGPT. When the time comes, ask it to *"write a one-page briefing about me that I can give to another AI assistant"* and you'll carry everything over in one paste.
