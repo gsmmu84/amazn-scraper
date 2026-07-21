@@ -108,6 +108,8 @@ Then, on your next drive, say:
 
 > "Open my Task & Project Log sheet. Pick one or two projects I could actually move forward right now from the car, and let's work on them — or at least build out a framework for one, step by step."
 
+**Heads up:** ChatGPT can *read* this sheet but can't *write* new rows into it — for now, adding entries is your job. In the follow-up guide we'll set up **Claude**, which can be connected so it actually writes into the sheet for you.
+
 ---
 
 ## What to do in your first week
