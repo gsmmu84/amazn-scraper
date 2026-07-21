@@ -32,7 +32,7 @@ ChatGPT has a **memory**. Things it learns about you in conversation get saved, 
 
 Start voice mode (tap the waveform icon), and say something very close to this — you can paraphrase, the exact words don't matter:
 
-> "I'm brand new to AI and this is my first real conversation with you. I want you to interview me so you can really get to know me and remember everything important. Ask me **one question at a time** — short questions — about who I am, my work, my family, my goals, my challenges, and how I want you to help me. Dig deeper when my answer is vague. At the end I want you to save all of it to your memory. Let's start."
+> "I'm brand new to AI and this is my first real conversation with you. I want you to interview me so you can really get to know me and remember everything important. Ask me **one question at a time** — short questions — about who I am, my work, my family, my goals, my challenges, every account and tool I use, and how I want you to help me. **Quiz me like a consultant on their first day**: don't accept vague answers — keep asking follow-up questions until you have the specifics, real numbers, real names, real deadlines, and you understand exactly what I need. At the end I want you to save all of it to your memory. Let's start."
 
 Then just answer its questions like you're talking to a smart new assistant on their first day. Interrupt it whenever you want — voice mode handles that fine.
 
@@ -59,6 +59,20 @@ Listen to the summary. If it got something wrong, correct it right there ("No, r
 
 Open the app → tap your profile → **Settings → Personalization → Memory → Manage**. You should see a list of saved facts about you. You can delete anything you don't want kept. If memory was off, turn it on and tell ChatGPT: *"Save everything from our interview conversation to memory."*
 
+### Still driving? Put it to work right away
+
+The interview isn't just a survey — everything it learned is fuel for real tasks. While you're still on the road, say:
+
+> "Based on everything you've just learned about me, give me a list of five specific tasks you could take off my plate this week. Then let's do the first one together right now."
+
+Or pick from these — each one uses something you told it during the interview:
+
+- "Draft the email I've been avoiding — the one to [person I mentioned]."
+- "Take the biggest goal I told you about and turn it into a week-by-week plan."
+- "You know my challenges now — which one should I attack first, and how?"
+- "Give me the five questions I should be asking my [accountant / supplier / landlord]."
+- "Quiz me: what do you still not know about me that would help you help me?"
+
 ---
 
 ## Part 3: Connect Gmail and Google Sheets (at home, not driving)
@@ -77,6 +91,8 @@ This lets ChatGPT actually *read* your email and your spreadsheets when you ask 
 - "Summarize the important emails from my inbox in the last 3 days and tell me which ones need a reply."
 
 If it says it can't access something, go back to Settings → Connectors and make sure the connection shows as active, and that you connected the *same* Google account you actually use.
+
+**Juggling multiple accounts?** ChatGPT's connectors link one Google account at a time. If you run several Gmail addresses or businesses and want them all reachable and organized in one place, look at **Composio** (composio.dev) — a service built for connecting many accounts and apps to your AI. It's a more advanced step: get comfortable with one account first, then ask your AI to walk you through setting it up.
 
 **A note on trust:** you're giving an app read access to your email. That's the trade for the usefulness. You can disconnect any connector at any time from the same Settings → Connectors screen, and you can delete memories any time. Don't connect a work account that has data your employer wouldn't want shared with a third-party service.
 
