@@ -45,6 +45,24 @@ Four reviewer titles in the `1-CRUISE_PLACEHOLDER` group needed fixes:
 One typo in reviewer highlights was fixed: "mad in USA" → "made in USA" (B0DCGW5K99, noted in
 `processing_notes`).
 
+## Upload files
+
+- `medium_flatfile_title_update.txt` — tab-delimited PartialUpdate flat file with the **good rows
+  only**: 124 ASINs / 158 SKU rows (FBA + FBM SKUs both included). Good = reviewer signed off,
+  no processing flags, and a seller SKU was found. Title updates only — highlights are not
+  included because their flat-file field mapping is unverified.
+  - SKUs were mapped from the account's advertising data (`advertised_products`), since the
+    catalog sync has no SKUs. Spot-check a few before upload.
+  - `feed_product_type` is set to `auto_accessory` (listings sit in Automotive Magnets). If your
+    category template uses a different product type or header version, paste the `item_sku` /
+    `item_name` / `update_delete` columns into your downloaded template instead.
+- `whats_left.csv` — the 34 ASINs NOT in the flat file, with a `why_left_out` reason:
+  - 4 × `AUTO_FIXED_NEEDS_CONFIRM` — the cruise rows where the reviewer's title was auto-fixed
+    (over 75 chars / wrong size); confirm the fix, then they're ready (SKUs included).
+  - 8 × `NOT_REVIEWED` — rows with no Jovelove feedback at all.
+  - 22 × `NO_SKU_FOUND` — ASIN never advertised, so no SKU in ad data; needs a Seller Central
+    SKU lookup.
+
 ## Batch composition
 
 | check_group | rows |
