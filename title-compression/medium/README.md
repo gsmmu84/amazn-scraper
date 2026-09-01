@@ -53,9 +53,10 @@ One typo in reviewer highlights was fixed: "mad in USA" → "made in USA" (B0DCG
   included because their flat-file field mapping is unverified.
   - SKUs were mapped from the account's advertising data (`advertised_products`), since the
     catalog sync has no SKUs. Spot-check a few before upload.
-  - `feed_product_type` is set to `auto_accessory` (listings sit in Automotive Magnets). If your
-    category template uses a different product type or header version, paste the `item_sku` /
-    `item_name` / `update_delete` columns into your downloaded template instead.
+  - `feed_product_type` is `DECORATIVE_MAGNET` — the productType confirmed live via SP-API
+    (2026-09-01, verified on SKUs P-10, R-1, C5INR-100). If the upload still throws a template
+    error, paste the `item_sku` / `item_name` / `update_delete` columns into the downloaded
+    Decorative Magnet category template instead.
 - `whats_left.csv` — the 34 ASINs NOT in the flat file, with a `why_left_out` reason:
   - 4 × `AUTO_FIXED_NEEDS_CONFIRM` — the cruise rows where the reviewer's title was auto-fixed
     (over 75 chars / wrong size); confirm the fix, then they're ready (SKUs included).

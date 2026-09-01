@@ -1,161 +1,161 @@
 TemplateType=fptcustom	Version=2021.0805				
 feed_product_type	item_sku	external_product_id	external_product_id_type	item_name	update_delete
 Product Type	Seller SKU	Product ID	Product ID Type	Product Name	Update Delete
-auto_accessory	M-98	B0BY3B9FL5	ASIN	This Side Up Right Side Up Cruise Door Magnet 3x6 Inch, Personalized	PartialUpdate
-auto_accessory	M-101AM	B0BY3FYQQC	ASIN	This Side Up Right Side Up Cruise Door Magnet 4x8 Inch, Personalized	PartialUpdate
-auto_accessory	CCRUISE-11	B0F1NJTH4K	ASIN	Friends Don't Let Friends Cruise Door Magnet 6.5x7.5 Inch, Personalized	PartialUpdate
-auto_accessory	CCRUISE-12	B0F1NJWF6B	ASIN	Friends Don't Let Friends Alone Cruise Door Magnet 8x10 Inch, Personalized	PartialUpdate
-auto_accessory	CCRUISE-21	B0GHS1JF73	ASIN	Custom Cruise Door Magnet 6 Inch, Personalized, Tropical Pineapple Club	PartialUpdate
-auto_accessory	CCRUISE-48	B0GPRCPJXY	ASIN	Custom Birthday Custom Cruise Door Magnet 8 Inch, Personalized, Made in USA	PartialUpdate
-auto_accessory	P-10	B01HGZX8PK	ASIN	American Flag Pawprint Car Magnet, Red White & Blue	PartialUpdate
-auto_accessory	P-10AM	B01HGZX8PK	ASIN	American Flag Pawprint Car Magnet, Red White & Blue	PartialUpdate
-auto_accessory	O-3	B071VW9RGR	ASIN	26.2 Marathon Black Oval Car Magnet 4x6 Inch, Made in USA	PartialUpdate
-auto_accessory	O-3AM	B071VW9RGR	ASIN	26.2 Marathon Black Oval Car Magnet 4x6 Inch, Made in USA	PartialUpdate
-auto_accessory	O-1	B072FKY9B3	ASIN	13.1 Half Marathon Black Oval Car Magnet 4x6 Inch, Made in USA	PartialUpdate
-auto_accessory	O-1AM	B072FKY9B3	ASIN	13.1 Half Marathon Black Oval Car Magnet 4x6 Inch, Made in USA	PartialUpdate
-auto_accessory	38-76	B075GWQ8S2	ASIN	Adhesive Bandage Symbol Car Magnet 3x8 Inch, Made in USA	PartialUpdate
-auto_accessory	38-76AM	B075GWQ8S2	ASIN	Adhesive Bandage Symbol Car Magnet 3x8 Inch, Made in USA	PartialUpdate
-auto_accessory	P-59	B076HZBQ47	ASIN	My Dog is Smarter Than The President Car Magnet 5 Inch, Dog Lover Gift	PartialUpdate
-auto_accessory	P-59AM	B076HZBQ47	ASIN	My Dog is Smarter Than The President Car Magnet 5 Inch, Dog Lover Gift	PartialUpdate
-auto_accessory	38-82	B07C598SXV	ASIN	Coexist Symbol Car Magnet 3x8 Inch	PartialUpdate
-auto_accessory	38-82AM	B07C598SXV	ASIN	Coexist Symbol Car Magnet 3x8 Inch	PartialUpdate
-auto_accessory	38-84	B07LHKFP2G	ASIN	Healing Adhesive Bandage Symbol Car Magnet 3x8 Inch 2 Pack, Made in USA	PartialUpdate
-auto_accessory	38-84AM	B07LHKFP2G	ASIN	Healing Adhesive Bandage Symbol Car Magnet 3x8 Inch 2 Pack, Made in USA	PartialUpdate
-auto_accessory	38-89	B083C4ZNXK	ASIN	Just Married Car Magnet 3x8 Inch	PartialUpdate
-auto_accessory	38-89AM	B083C4ZNXK	ASIN	Just Married Car Magnet 3x8 Inch	PartialUpdate
-auto_accessory	38-93	B09T53542R	ASIN	Ouch Band Aid Car Magnet 3x8 Inch	PartialUpdate
-auto_accessory	38-93AM2	B09T53542R	ASIN	Ouch Band Aid Car Magnet 3x8 Inch	PartialUpdate
-auto_accessory	M-73	B0B3NHJ25D	ASIN	Ice Cream On Board Car Magnet 5x5 Inch	PartialUpdate
-auto_accessory	M-73AM	B0B3NHJ25D	ASIN	Ice Cream On Board Car Magnet 5x5 Inch	PartialUpdate
-auto_accessory	38-104	B0BLHZL16L	ASIN	Elderly Driver Please Be Patient Car Magnet 3x8 Inch	PartialUpdate
-auto_accessory	38-104AM	B0BLHZL16L	ASIN	Elderly Driver Please Be Patient Car Magnet 3x8 Inch	PartialUpdate
-auto_accessory	C6RO	B0CBL2R5WZ	ASIN	Customizable Round Magnet 6 Inch, Made in USA	PartialUpdate
-auto_accessory	C5INR-25	B0CPYJTR7L	ASIN	Customizable Round Magnet 5 Inch 25 Pack, Made in USA	PartialUpdate
-auto_accessory	C5INR-100	B0CPYK1VGF	ASIN	Customizable Round Magnet 5 Inch 100 pc, Made in USA	PartialUpdate
-auto_accessory	C5INR-50	B0CPYL2R1D	ASIN	Customizable Round Magnet 5 Inch 50 pc, Made in USA	PartialUpdate
-auto_accessory	C46O-100	B0CXF9TFCK	ASIN	Customizable Oval Magnet 4x6 Inch 100 pc, Made in USA	PartialUpdate
-auto_accessory	C5RO-5	B0CZ7NRVCX	ASIN	Custom Round Car Magnet 5 Inch 5 Pack, Made in USA	PartialUpdate
-auto_accessory	C6RO-5	B0CZPCC8B8	ASIN	Customizable Round Magnet 6 Inch 5 Pack, Made in USA	PartialUpdate
-auto_accessory	C5INR-250	B0D9MDF94J	ASIN	Customizable Round Magnet 5 Inch 250 Pack, Made in USA	PartialUpdate
-auto_accessory	C6INR-100	B0DB8W448N	ASIN	Customizable Round Magnet 6 Inch 100 Pack, Made in USA	PartialUpdate
-auto_accessory	CDIEC-5	B0DNKPPW1Q	ASIN	Custom Die Cut Car Magnet 30 Mil, Upload Logo, Made in USA	PartialUpdate
-auto_accessory	38-127	B0FSTGVRYR	ASIN	Don’t Honk at Me My Dad is Dead 8x3 Inch Dark Humor Gag Gift Magnet	PartialUpdate
-auto_accessory	38-127AM	B0FSTGVRYR	ASIN	Don’t Honk at Me My Dad is Dead 8x3 Inch Dark Humor Gag Gift Magnet	PartialUpdate
-auto_accessory	38-139AM	B0G2N1KJTL	ASIN	Please Be Patient Driver Is Blind Car Magnet 3x8 Inch, Funny Gift, USA Made	PartialUpdate
-auto_accessory	5R-158	B0G6G3LTY5	ASIN	I Choose Violence Frog Round Locker Magnet 5 Inch, Funny Gift, Made in USA	PartialUpdate
-auto_accessory	5R-158AM	B0G6G3LTY5	ASIN	I Choose Violence Frog Round Locker Magnet 5 Inch, Funny Gift, Made in USA	PartialUpdate
-auto_accessory	C5INR-500	B0H12WLCJZ	ASIN	Customizable Round Magnet 5 Inch 500 Pack, Made in USA	PartialUpdate
-auto_accessory	38-32	B01N11XF8C	ASIN	I Love New York Car Magnet 3x8 Inch	PartialUpdate
-auto_accessory	38-28	B01N34X8D8	ASIN	I Love Nevada Car Magnet 3x8 Inch	PartialUpdate
-auto_accessory	O-88	B07236TYZF	ASIN	10K Marathon Inverted Black Oval Car Magnet 4x6 Inch, Made in USA	PartialUpdate
-auto_accessory	O-115	B076JKYRY2	ASIN	5K Marathon Black Stencil Oval Car Magnet 4x6 Inch	PartialUpdate
-auto_accessory	R-33	B076PVFRK4	ASIN	Breast Cancer Survivor Pink Ribbon Car Magnet 3.5x7 Inch	PartialUpdate
-auto_accessory	R-33AM	B076PVFRK4	ASIN	Breast Cancer Survivor Pink Ribbon Car Magnet 3.5x7 Inch	PartialUpdate
-auto_accessory	O-160	B07JCFCJJF	ASIN	13.1 Half Marathon Black Oval Car Magnet 4x6 Inch 2 Pack	PartialUpdate
-auto_accessory	O-160AM	B07JCFCJJF	ASIN	13.1 Half Marathon Black Oval Car Magnet 4x6 Inch 2 Pack	PartialUpdate
-auto_accessory	O-163	B07JCFR7V1	ASIN	Soccer Mom Sports Oval Car Magnet 4x6 Inch 2 Pack, Pink, Made in USA	PartialUpdate
-auto_accessory	R-62	B09QRLMJHZ	ASIN	Head and Neck Cancer Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
-auto_accessory	R-62AM	B09QRLMJHZ	ASIN	Head and Neck Cancer Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
-auto_accessory	R-52	B0BGT4QJZ5	ASIN	Support Breast Cancer Awareness Pink Ribbon Car Magnet 3.5x7 Inch 2 Pack	PartialUpdate
-auto_accessory	R-52AM	B0BGT4QJZ5	ASIN	Support Breast Cancer Awareness Pink Ribbon Car Magnet 3.5x7 Inch 2 Pack	PartialUpdate
-auto_accessory	O-207	B0BZJVDCBR	ASIN	Canada Canadian Euro Oval Car Magnet 4x6 Inch	PartialUpdate
-auto_accessory	O-207AM	B0BZJVDCBR	ASIN	Canada Canadian Euro Oval Car Magnet 4x6 Inch	PartialUpdate
-auto_accessory	MDO-02	B0CLFMMRXM	ASIN	13.1 Half Marathon Inverted Black Oval Decal Stickers, 5.5x3.5 Inch 2 Pack	PartialUpdate
-auto_accessory	O-253	B0CZ4LD67D	ASIN	Nebraska Chimney Rock State Scenic Oval Car Magnet 4x6 Inch, Made in USA	PartialUpdate
-auto_accessory	O-260	B0D5BSSP74	ASIN	Pennsylvania Liberty Bell State Oval Car Magnet 4x6 Inch, Made in USA	PartialUpdate
-auto_accessory	O-341	B0DW19FQLX	ASIN	I Love My Chicken Car Magnet 4x6 Inch Oval, Funny Gift, Made in USA	PartialUpdate
-auto_accessory	M-254	B0F257VKSD	ASIN	Wild Horse Kick Funny Car Magnet 5 Inch, Funny Gift, Pink Unicorn	PartialUpdate
-auto_accessory	5R-105	B0F3W996TR	ASIN	Hands Off Social Security Car Magnet 5 Inch Round, Made in USA	PartialUpdate
-auto_accessory	M-264	B0F8RCHHM7	ASIN	Alabama State Fridge Magnet 6x4 Inch, Made in USA	PartialUpdate
-auto_accessory	V-3	B0F94K3RNC	ASIN	Magnetic Vent Cover 13x6 Inch Fits 12x5.5 Vents, 3 Pack	PartialUpdate
-auto_accessory	5R-126	B0FGFGPCPB	ASIN	Eiffel Tower Magnet 5 Inch Round, Made in USA	PartialUpdate
-auto_accessory	M-304AM	B0FHRNDZSY	ASIN	Back Hair Waxing Club Car Magnet 5 Inch Round, Funny Gift, Made in USA	PartialUpdate
-auto_accessory	M-312	B0FHSNN964	ASIN	Oklahoma State Fridge Magnet 6x4 Inch, Made in USA	PartialUpdate
-auto_accessory	5R-138	B0FHXSKLSM	ASIN	Forbidden City Car Magnet 5 Inch Round, Made in USA	PartialUpdate
-auto_accessory	5R-144	B0FJS7L8PQ	ASIN	Ephesus Ruins Car Magnet 5 Inch Round, Made in USA	PartialUpdate
-auto_accessory	M-337	B0FK7FNJ2G	ASIN	New York State Fridge Magnet 3.7x5 Inch, Made in USA	PartialUpdate
-auto_accessory	M-332	B0FK7FPB78	ASIN	Mississippi State Car Magnet 2.8x4.9 Inch, Made in USA	PartialUpdate
-auto_accessory	38-135	B0FXHQ4NJB	ASIN	I'd Rather Be Watching Paranormal Television Car Magnet 3x8 Inch, USA Made	PartialUpdate
-auto_accessory	38-143	B0G976CHBP	ASIN	Just Pass Me This is As Fast As It Gets Car Magnet 3x8 Inch, Funny Gift	PartialUpdate
-auto_accessory	38-162	B0GY5L15ZV	ASIN	My Other Car is A Broom Car Magnet 3x8 Inch, Funny Gift, Made in USA	PartialUpdate
-auto_accessory	M-406	B0GYQ7S6DV	ASIN	Trauma Nurse Locker Magnet 5x5 Inch, Heart, Made in USA	PartialUpdate
-auto_accessory	R-128	B0H2JHLL7W	ASIN	Leukemia and Kidney Cancer Survivor Orange Car Magnet 3.5x7 Inch 2 Pack	PartialUpdate
-auto_accessory	CFOOTBALL-910	B0H2JVKF1W	ASIN	Custom Football Helmet Magnet 9x10 Inch, Made in USA	PartialUpdate
-auto_accessory	R-162	B0H4NKVP7F	ASIN	Breast Cancer Pink Mandala Survivor Ribbon Car Magnet 3.5x7 in 2 Pack	PartialUpdate
-auto_accessory	R-175	B0H4WJ7L4P	ASIN	Bone Cancer Fighter Car Magnet 3.5x7 Inch 2 Pack, Yellow Ribbon	PartialUpdate
-auto_accessory	E-178	B0H76XS1PR	ASIN	Josh Shapiro Democrat Supporter Election Car Magnet 4x6 Inch, Made in USA	PartialUpdate
-auto_accessory	O-78	B076JFRYV1	ASIN	Skull Boo! Oval Car Magnet 4x6 Inch	PartialUpdate
-auto_accessory	O-72	B076JJZ29Q	ASIN	Grim Reaper Boo! Oval Car Magnet 4x6 Inch	PartialUpdate
-auto_accessory	38-52	B076R6W15B	ASIN	Honk Again I Didn't Hear You! Car Magnet 3x8 Inch	PartialUpdate
-auto_accessory	38-51	B076R9WPV1	ASIN	Honk Again I'm Reloading! Car Magnet 3x8 Inch	PartialUpdate
-auto_accessory	38-53	B076RC4THG	ASIN	Honk Again I Dare You! Car Magnet 3x8 Inch	PartialUpdate
-auto_accessory	38-54	B076RDR2H4	ASIN	Honk Again Feel Better Now? Car Magnet 3x8 Inch	PartialUpdate
-auto_accessory	B-9	B07772V946	ASIN	Dog Grandma and Dog Grandpa Bone Car Magnet 2x7 Inch 2 Pack, Dog Lover Gift	PartialUpdate
-auto_accessory	B-9AM	B07772V946	ASIN	Dog Grandma and Dog Grandpa Bone Car Magnet 2x7 Inch 2 Pack, Dog Lover Gift	PartialUpdate
-auto_accessory	O-123	B07932LRHG	ASIN	I'm Awesome! Just Saying Oval Car Magnet 4x6 Inch	PartialUpdate
-auto_accessory	M-34	B07BL35Q5M	ASIN	You are More Awesome Than You Realize! Dishwasher Magnet 4x4 Inch, USA Made	PartialUpdate
-auto_accessory	O-153	B07CZVYGQ7	ASIN	Vegan! All Natural Colors Oval Car Magnet 4x6 Inch	PartialUpdate
-auto_accessory	O-178	B09D8JN3WZ	ASIN	She Believed that She Could So She Did Oval Car Magnet 4x6 Inch	PartialUpdate
-auto_accessory	5R-88	B0CWSBJY9G	ASIN	Back Off! I'm Anxious Car Magnet 5 Inch, Funny Gift, Made in USA	PartialUpdate
-auto_accessory	M-190	B0CXYPZK13	ASIN	Duck This and Duck That Crazy Cute Duck Car Magnet 5 in 2 Pack, Funny Gift	PartialUpdate
-auto_accessory	M-189	B0CXYQHNC1	ASIN	Duck This! Crazy Cute Duck Car Magnet 6x4 Inch, Funny Gift, Made in USA	PartialUpdate
-auto_accessory	M-188	B0CXYVBXLR	ASIN	Duck that! Crazy Cute Duck Car Magnet 6x4 Inch, Funny Gift, Made in USA	PartialUpdate
-auto_accessory	M-196	B0D47ZLMN9	ASIN	Keep Back! Karen On Board Car Magnet 5x5 Inch, Funny Gift, Made in USA	PartialUpdate
-auto_accessory	R-85	B0F6TQ3PW7	ASIN	It's Okay Not to be Okay! Mental Health Awareness Ribbon Magnet 3.5x7 in	PartialUpdate
-auto_accessory	5R-127	B0FGFPKZPW	ASIN	Mont Saint- Michel 5" Car Magnet, Made in USA	PartialUpdate
-auto_accessory	M-375	B0GDS9NKD3	ASIN	Remember When I Asked for Your Opinion? Funny Car Magnet 5x5 in, Funny Gift	PartialUpdate
-auto_accessory	38-161	B0GY5DG36W	ASIN	My Other Car is Also A Car Funny Car Magnet 3x8 Inch, Funny Gift, USA Made	PartialUpdate
-auto_accessory	R-171	B0H4WNZ57F	ASIN	It's Okay Not to be Okay! Mental Health Ribbon Magnet 3.5x7 Inch 2 Pack	PartialUpdate
-auto_accessory	R-3	B076PK14C1	ASIN	White Lung Cancer Awareness Ribbon Magnet Decal, 3.5 x 7 Inches	PartialUpdate
-auto_accessory	R-3AM	B076PK14C1	ASIN	White Lung Cancer Awareness Ribbon Magnet Decal, 3.5 x 7 Inches	PartialUpdate
-auto_accessory	R-4	B076PM1C6B	ASIN	Teal Cervical and Ovarian Awareness Ribbon Magnet Decal, 3.5 Inches	PartialUpdate
-auto_accessory	R-4AM	B076PM1C6B	ASIN	Teal Cervical and Ovarian Awareness Ribbon Magnet Decal, 3.5 Inches	PartialUpdate
-auto_accessory	R-1	B076PMFCP3	ASIN	Pink Breast Cancer Awareness Ribbon Car Magnet Decal, 3.5 x 7 Inches	PartialUpdate
-auto_accessory	R-1AM	B076PMFCP3	ASIN	Pink Breast Cancer Awareness Ribbon Car Magnet Decal, 3.5 x 7 Inches	PartialUpdate
-auto_accessory	R-14	B076PMH2TC	ASIN	Blue Colon Cancer Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
-auto_accessory	R-14AM	B076PMH2TC	ASIN	Blue Colon Cancer Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
-auto_accessory	R-6	B076PP4PFX	ASIN	Peach Uterine Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
-auto_accessory	R-6AM	B076PP4PFX	ASIN	Peach Uterine Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
-auto_accessory	R-2	B076PP75D7	ASIN	Yellow Bladder Cancer Awareness Ribbon Magnet Decal, 3.5 x 7 Inches	PartialUpdate
-auto_accessory	R-7	B076PPDB8R	ASIN	Orange Leukemia and Kidney Cancer Awareness Ribbon Magnet, 3.5 x7 Inches	PartialUpdate
-auto_accessory	R-7AM	B076PPDB8R	ASIN	Orange Leukemia and Kidney Cancer Awareness Ribbon Magnet, 3.5 x7 Inches	PartialUpdate
-auto_accessory	R-16	B076PPKHX9	ASIN	Aqua Prostate Cancer Awareness Ribbon Magnet Decal, 3.5x7 In	PartialUpdate
-auto_accessory	R-16AM	B076PPKHX9	ASIN	Aqua Prostate Cancer Awareness Ribbon Magnet Decal, 3.5x7 In	PartialUpdate
-auto_accessory	R-8	B076PQG9GL	ASIN	Lime Lymphoma Cancer Awareness Ribbon Magnet Decal, 3.5x7 inches	PartialUpdate
-auto_accessory	R-8AM	B076PQG9GL	ASIN	Lime Lymphoma Cancer Awareness Ribbon Magnet Decal, 3.5x7 inches	PartialUpdate
-auto_accessory	R-5	B076PQHYJS	ASIN	Purple Pancreatic and Leiomyosarcoma Cancer Ribbon Magnet, 3.5x7 Inches	PartialUpdate
-auto_accessory	R-5AM	B076PQHYJS	ASIN	Purple Pancreatic and Leiomyosarcoma Cancer Ribbon Magnet, 3.5x7 Inches	PartialUpdate
-auto_accessory	R-10	B076PQMFR9	ASIN	Grey Brain Cancer Ribbon Car Magnet 3.5x7 Inch, Awareness	PartialUpdate
-auto_accessory	R-10AM	B076PQMFR9	ASIN	Grey Brain Cancer Ribbon Car Magnet 3.5x7 Inch, Awareness	PartialUpdate
-auto_accessory	R-11	B076PR8DKP	ASIN	Green Liver Cancer Awareness Ribbon Car Magnet 3.5x7 Inch	PartialUpdate
-auto_accessory	R-11AM	B076PR8DKP	ASIN	Green Liver Cancer Awareness Ribbon Car Magnet 3.5x7 Inch	PartialUpdate
-auto_accessory	R-15	B076PVMW4K	ASIN	Black Melanoma Cancer Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
-auto_accessory	R-56	B09QLJX68D	ASIN	Support Esophageal and Stomach Cancer Awareness Ribbon Magnet, 3.5x7 Inch	PartialUpdate
-auto_accessory	R-56AM	B09QLJX68D	ASIN	Support Esophageal and Stomach Cancer Awareness Ribbon Magnet, 3.5x7 Inch	PartialUpdate
-auto_accessory	R-63	B09QRN9PRH	ASIN	Head and Neck Cancer Fighter Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
-auto_accessory	R-63AM	B09QRN9PRH	ASIN	Head and Neck Cancer Fighter Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
-auto_accessory	R-65	B09QRXXJ26	ASIN	Zebra Carcinoid Cancer Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
-auto_accessory	R-65AM	B09QRXXJ26	ASIN	Zebra Carcinoid Cancer Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
-auto_accessory	EM-52	B0BKH6NVX8	ASIN	Poop Emoticon Car Magnet, 5 Inch	PartialUpdate
-auto_accessory	M-172	B0CPT86SSN	ASIN	You've Been Ducked Cute Vehicle Duck Car Magnet 4x4 Inch 4 Pack, Funny Gift	PartialUpdate
-auto_accessory	M-172AM	B0CPT86SSN	ASIN	You've Been Ducked Cute Vehicle Duck Car Magnet 4x4 Inch 4 Pack, Funny Gift	PartialUpdate
-auto_accessory	M-173	B0CPT93RWN	ASIN	You've Been Ducked Cute Vehicle Duck Magnets, Ducking Game, 4 Pk, 4x4 in	PartialUpdate
-auto_accessory	CBONE	B0CQ5XRC1S	ASIN	Customizable with Text Bone Magnet, 2x7 Inch	PartialUpdate
-auto_accessory	C8X3-5	B0CZLZCJ85	ASIN	Custom Rectangle Car Magnet 8x3 Inch 5 Pack, Image and Text	PartialUpdate
-auto_accessory	C10X3-5	B0CZM4L5T3	ASIN	Custom Rectangle Car Magnet 10x3 Inch 5 Pack, Image and Text	PartialUpdate
-auto_accessory	C46R-5	B0CZPGCK4C	ASIN	Custom 4x6 Inch Rectangle Photo Refrigerator Magnet, 5 Pack, Photo & Text	PartialUpdate
-auto_accessory	NB-1	B0D4RBRHV1	ASIN	Custom Printed Magnetic Name Tag Name 1.5x3 Inch, Logo Left	PartialUpdate
-auto_accessory	C57ROSH	B0DG3WT5YQ	ASIN	Rosh Hashanah Photo Frame Custom Magnet, 5x7 inch, Upload Photo	PartialUpdate
-auto_accessory	CRIBBON-1	B0DHDD8T65	ASIN	Custom Ribbon Car Magnet 7x3.5 Inch, Made in USA	PartialUpdate
-auto_accessory	C45POL-HAL2	B0DJSDD6GJ	ASIN	Custom Halloween Photo Magnet, 4x5 Inch Yellow Photo Frame, Photo and Text	PartialUpdate
-auto_accessory	C45POL-HAL1	B0DJSM2TPP	ASIN	Custom Halloween Photo Magnet, 4x5 Inch Purple Photo Frame, Photo and Text	PartialUpdate
-auto_accessory	CDIEC-1	B0DJWKNTB8	ASIN	Custom Die Cut Car Magnet, Personalized Shape and Design	PartialUpdate
-auto_accessory	C45POL-HAN2	B0DM2MWYMQ	ASIN	Custom 4x5 Inch Hanukkah Photo Refrigerator Magnet with Text Option	PartialUpdate
-auto_accessory	CDIEC-4	B0DNKLQXS4	ASIN	Custom Die Cut Car Magnet, Upload Logo, Made in USA	PartialUpdate
-auto_accessory	CLUGGAGE-1	B0DNTXHVMB	ASIN	Custom Luggage Tags for Travel Bags, Suitcase, 3x5 inch, 2 Pack	PartialUpdate
-auto_accessory	C57CHRIS1	B0DPMPV47F	ASIN	Custom Christmas Red Photo Frame Refrigerator Magnet, Photo and text, 5"x7"	PartialUpdate
-auto_accessory	CDIEC-7	B0DPR9FJVL	ASIN	Custom Photo Magnet, Die-cut, Add Photo & Text, Made in USA	PartialUpdate
-auto_accessory	CDIEC-6	B0DPRBRK9N	ASIN	Custom Pet Die-cut Magnet, Add Photo & Text, Made in USA	PartialUpdate
-auto_accessory	CASL2	B0DRZ386C1	ASIN	Customizable American Sign Language Fridge Magnet, 8x5 Inches, Add Logo	PartialUpdate
-auto_accessory	CSTICKERDIE-1	B0GTJNSCGZ	ASIN	Custom Die-Cut Adhesive Sticker, Upload Logo, Made in USA	PartialUpdate
-auto_accessory	R-118	B0H2FHC7N3	ASIN	Hodgkin's Lymphoma and Testicular Cancer Awareness Ribbon Magnet, 3.5"x7"	PartialUpdate
+DECORATIVE_MAGNET	M-98	B0BY3B9FL5	ASIN	This Side Up Right Side Up Cruise Door Magnet 3x6 Inch, Personalized	PartialUpdate
+DECORATIVE_MAGNET	M-101AM	B0BY3FYQQC	ASIN	This Side Up Right Side Up Cruise Door Magnet 4x8 Inch, Personalized	PartialUpdate
+DECORATIVE_MAGNET	CCRUISE-11	B0F1NJTH4K	ASIN	Friends Don't Let Friends Cruise Door Magnet 6.5x7.5 Inch, Personalized	PartialUpdate
+DECORATIVE_MAGNET	CCRUISE-12	B0F1NJWF6B	ASIN	Friends Don't Let Friends Alone Cruise Door Magnet 8x10 Inch, Personalized	PartialUpdate
+DECORATIVE_MAGNET	CCRUISE-21	B0GHS1JF73	ASIN	Custom Cruise Door Magnet 6 Inch, Personalized, Tropical Pineapple Club	PartialUpdate
+DECORATIVE_MAGNET	CCRUISE-48	B0GPRCPJXY	ASIN	Custom Birthday Custom Cruise Door Magnet 8 Inch, Personalized, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	P-10	B01HGZX8PK	ASIN	American Flag Pawprint Car Magnet, Red White & Blue	PartialUpdate
+DECORATIVE_MAGNET	P-10AM	B01HGZX8PK	ASIN	American Flag Pawprint Car Magnet, Red White & Blue	PartialUpdate
+DECORATIVE_MAGNET	O-3	B071VW9RGR	ASIN	26.2 Marathon Black Oval Car Magnet 4x6 Inch, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	O-3AM	B071VW9RGR	ASIN	26.2 Marathon Black Oval Car Magnet 4x6 Inch, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	O-1	B072FKY9B3	ASIN	13.1 Half Marathon Black Oval Car Magnet 4x6 Inch, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	O-1AM	B072FKY9B3	ASIN	13.1 Half Marathon Black Oval Car Magnet 4x6 Inch, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	38-76	B075GWQ8S2	ASIN	Adhesive Bandage Symbol Car Magnet 3x8 Inch, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	38-76AM	B075GWQ8S2	ASIN	Adhesive Bandage Symbol Car Magnet 3x8 Inch, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	P-59	B076HZBQ47	ASIN	My Dog is Smarter Than The President Car Magnet 5 Inch, Dog Lover Gift	PartialUpdate
+DECORATIVE_MAGNET	P-59AM	B076HZBQ47	ASIN	My Dog is Smarter Than The President Car Magnet 5 Inch, Dog Lover Gift	PartialUpdate
+DECORATIVE_MAGNET	38-82	B07C598SXV	ASIN	Coexist Symbol Car Magnet 3x8 Inch	PartialUpdate
+DECORATIVE_MAGNET	38-82AM	B07C598SXV	ASIN	Coexist Symbol Car Magnet 3x8 Inch	PartialUpdate
+DECORATIVE_MAGNET	38-84	B07LHKFP2G	ASIN	Healing Adhesive Bandage Symbol Car Magnet 3x8 Inch 2 Pack, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	38-84AM	B07LHKFP2G	ASIN	Healing Adhesive Bandage Symbol Car Magnet 3x8 Inch 2 Pack, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	38-89	B083C4ZNXK	ASIN	Just Married Car Magnet 3x8 Inch	PartialUpdate
+DECORATIVE_MAGNET	38-89AM	B083C4ZNXK	ASIN	Just Married Car Magnet 3x8 Inch	PartialUpdate
+DECORATIVE_MAGNET	38-93	B09T53542R	ASIN	Ouch Band Aid Car Magnet 3x8 Inch	PartialUpdate
+DECORATIVE_MAGNET	38-93AM2	B09T53542R	ASIN	Ouch Band Aid Car Magnet 3x8 Inch	PartialUpdate
+DECORATIVE_MAGNET	M-73	B0B3NHJ25D	ASIN	Ice Cream On Board Car Magnet 5x5 Inch	PartialUpdate
+DECORATIVE_MAGNET	M-73AM	B0B3NHJ25D	ASIN	Ice Cream On Board Car Magnet 5x5 Inch	PartialUpdate
+DECORATIVE_MAGNET	38-104	B0BLHZL16L	ASIN	Elderly Driver Please Be Patient Car Magnet 3x8 Inch	PartialUpdate
+DECORATIVE_MAGNET	38-104AM	B0BLHZL16L	ASIN	Elderly Driver Please Be Patient Car Magnet 3x8 Inch	PartialUpdate
+DECORATIVE_MAGNET	C6RO	B0CBL2R5WZ	ASIN	Customizable Round Magnet 6 Inch, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	C5INR-25	B0CPYJTR7L	ASIN	Customizable Round Magnet 5 Inch 25 Pack, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	C5INR-100	B0CPYK1VGF	ASIN	Customizable Round Magnet 5 Inch 100 pc, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	C5INR-50	B0CPYL2R1D	ASIN	Customizable Round Magnet 5 Inch 50 pc, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	C46O-100	B0CXF9TFCK	ASIN	Customizable Oval Magnet 4x6 Inch 100 pc, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	C5RO-5	B0CZ7NRVCX	ASIN	Custom Round Car Magnet 5 Inch 5 Pack, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	C6RO-5	B0CZPCC8B8	ASIN	Customizable Round Magnet 6 Inch 5 Pack, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	C5INR-250	B0D9MDF94J	ASIN	Customizable Round Magnet 5 Inch 250 Pack, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	C6INR-100	B0DB8W448N	ASIN	Customizable Round Magnet 6 Inch 100 Pack, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	CDIEC-5	B0DNKPPW1Q	ASIN	Custom Die Cut Car Magnet 30 Mil, Upload Logo, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	38-127	B0FSTGVRYR	ASIN	Don’t Honk at Me My Dad is Dead 8x3 Inch Dark Humor Gag Gift Magnet	PartialUpdate
+DECORATIVE_MAGNET	38-127AM	B0FSTGVRYR	ASIN	Don’t Honk at Me My Dad is Dead 8x3 Inch Dark Humor Gag Gift Magnet	PartialUpdate
+DECORATIVE_MAGNET	38-139AM	B0G2N1KJTL	ASIN	Please Be Patient Driver Is Blind Car Magnet 3x8 Inch, Funny Gift, USA Made	PartialUpdate
+DECORATIVE_MAGNET	5R-158	B0G6G3LTY5	ASIN	I Choose Violence Frog Round Locker Magnet 5 Inch, Funny Gift, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	5R-158AM	B0G6G3LTY5	ASIN	I Choose Violence Frog Round Locker Magnet 5 Inch, Funny Gift, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	C5INR-500	B0H12WLCJZ	ASIN	Customizable Round Magnet 5 Inch 500 Pack, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	38-32	B01N11XF8C	ASIN	I Love New York Car Magnet 3x8 Inch	PartialUpdate
+DECORATIVE_MAGNET	38-28	B01N34X8D8	ASIN	I Love Nevada Car Magnet 3x8 Inch	PartialUpdate
+DECORATIVE_MAGNET	O-88	B07236TYZF	ASIN	10K Marathon Inverted Black Oval Car Magnet 4x6 Inch, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	O-115	B076JKYRY2	ASIN	5K Marathon Black Stencil Oval Car Magnet 4x6 Inch	PartialUpdate
+DECORATIVE_MAGNET	R-33	B076PVFRK4	ASIN	Breast Cancer Survivor Pink Ribbon Car Magnet 3.5x7 Inch	PartialUpdate
+DECORATIVE_MAGNET	R-33AM	B076PVFRK4	ASIN	Breast Cancer Survivor Pink Ribbon Car Magnet 3.5x7 Inch	PartialUpdate
+DECORATIVE_MAGNET	O-160	B07JCFCJJF	ASIN	13.1 Half Marathon Black Oval Car Magnet 4x6 Inch 2 Pack	PartialUpdate
+DECORATIVE_MAGNET	O-160AM	B07JCFCJJF	ASIN	13.1 Half Marathon Black Oval Car Magnet 4x6 Inch 2 Pack	PartialUpdate
+DECORATIVE_MAGNET	O-163	B07JCFR7V1	ASIN	Soccer Mom Sports Oval Car Magnet 4x6 Inch 2 Pack, Pink, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	R-62	B09QRLMJHZ	ASIN	Head and Neck Cancer Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-62AM	B09QRLMJHZ	ASIN	Head and Neck Cancer Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-52	B0BGT4QJZ5	ASIN	Support Breast Cancer Awareness Pink Ribbon Car Magnet 3.5x7 Inch 2 Pack	PartialUpdate
+DECORATIVE_MAGNET	R-52AM	B0BGT4QJZ5	ASIN	Support Breast Cancer Awareness Pink Ribbon Car Magnet 3.5x7 Inch 2 Pack	PartialUpdate
+DECORATIVE_MAGNET	O-207	B0BZJVDCBR	ASIN	Canada Canadian Euro Oval Car Magnet 4x6 Inch	PartialUpdate
+DECORATIVE_MAGNET	O-207AM	B0BZJVDCBR	ASIN	Canada Canadian Euro Oval Car Magnet 4x6 Inch	PartialUpdate
+DECORATIVE_MAGNET	MDO-02	B0CLFMMRXM	ASIN	13.1 Half Marathon Inverted Black Oval Decal Stickers, 5.5x3.5 Inch 2 Pack	PartialUpdate
+DECORATIVE_MAGNET	O-253	B0CZ4LD67D	ASIN	Nebraska Chimney Rock State Scenic Oval Car Magnet 4x6 Inch, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	O-260	B0D5BSSP74	ASIN	Pennsylvania Liberty Bell State Oval Car Magnet 4x6 Inch, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	O-341	B0DW19FQLX	ASIN	I Love My Chicken Car Magnet 4x6 Inch Oval, Funny Gift, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	M-254	B0F257VKSD	ASIN	Wild Horse Kick Funny Car Magnet 5 Inch, Funny Gift, Pink Unicorn	PartialUpdate
+DECORATIVE_MAGNET	5R-105	B0F3W996TR	ASIN	Hands Off Social Security Car Magnet 5 Inch Round, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	M-264	B0F8RCHHM7	ASIN	Alabama State Fridge Magnet 6x4 Inch, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	V-3	B0F94K3RNC	ASIN	Magnetic Vent Cover 13x6 Inch Fits 12x5.5 Vents, 3 Pack	PartialUpdate
+DECORATIVE_MAGNET	5R-126	B0FGFGPCPB	ASIN	Eiffel Tower Magnet 5 Inch Round, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	M-304AM	B0FHRNDZSY	ASIN	Back Hair Waxing Club Car Magnet 5 Inch Round, Funny Gift, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	M-312	B0FHSNN964	ASIN	Oklahoma State Fridge Magnet 6x4 Inch, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	5R-138	B0FHXSKLSM	ASIN	Forbidden City Car Magnet 5 Inch Round, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	5R-144	B0FJS7L8PQ	ASIN	Ephesus Ruins Car Magnet 5 Inch Round, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	M-337	B0FK7FNJ2G	ASIN	New York State Fridge Magnet 3.7x5 Inch, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	M-332	B0FK7FPB78	ASIN	Mississippi State Car Magnet 2.8x4.9 Inch, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	38-135	B0FXHQ4NJB	ASIN	I'd Rather Be Watching Paranormal Television Car Magnet 3x8 Inch, USA Made	PartialUpdate
+DECORATIVE_MAGNET	38-143	B0G976CHBP	ASIN	Just Pass Me This is As Fast As It Gets Car Magnet 3x8 Inch, Funny Gift	PartialUpdate
+DECORATIVE_MAGNET	38-162	B0GY5L15ZV	ASIN	My Other Car is A Broom Car Magnet 3x8 Inch, Funny Gift, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	M-406	B0GYQ7S6DV	ASIN	Trauma Nurse Locker Magnet 5x5 Inch, Heart, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	R-128	B0H2JHLL7W	ASIN	Leukemia and Kidney Cancer Survivor Orange Car Magnet 3.5x7 Inch 2 Pack	PartialUpdate
+DECORATIVE_MAGNET	CFOOTBALL-910	B0H2JVKF1W	ASIN	Custom Football Helmet Magnet 9x10 Inch, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	R-162	B0H4NKVP7F	ASIN	Breast Cancer Pink Mandala Survivor Ribbon Car Magnet 3.5x7 in 2 Pack	PartialUpdate
+DECORATIVE_MAGNET	R-175	B0H4WJ7L4P	ASIN	Bone Cancer Fighter Car Magnet 3.5x7 Inch 2 Pack, Yellow Ribbon	PartialUpdate
+DECORATIVE_MAGNET	E-178	B0H76XS1PR	ASIN	Josh Shapiro Democrat Supporter Election Car Magnet 4x6 Inch, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	O-78	B076JFRYV1	ASIN	Skull Boo! Oval Car Magnet 4x6 Inch	PartialUpdate
+DECORATIVE_MAGNET	O-72	B076JJZ29Q	ASIN	Grim Reaper Boo! Oval Car Magnet 4x6 Inch	PartialUpdate
+DECORATIVE_MAGNET	38-52	B076R6W15B	ASIN	Honk Again I Didn't Hear You! Car Magnet 3x8 Inch	PartialUpdate
+DECORATIVE_MAGNET	38-51	B076R9WPV1	ASIN	Honk Again I'm Reloading! Car Magnet 3x8 Inch	PartialUpdate
+DECORATIVE_MAGNET	38-53	B076RC4THG	ASIN	Honk Again I Dare You! Car Magnet 3x8 Inch	PartialUpdate
+DECORATIVE_MAGNET	38-54	B076RDR2H4	ASIN	Honk Again Feel Better Now? Car Magnet 3x8 Inch	PartialUpdate
+DECORATIVE_MAGNET	B-9	B07772V946	ASIN	Dog Grandma and Dog Grandpa Bone Car Magnet 2x7 Inch 2 Pack, Dog Lover Gift	PartialUpdate
+DECORATIVE_MAGNET	B-9AM	B07772V946	ASIN	Dog Grandma and Dog Grandpa Bone Car Magnet 2x7 Inch 2 Pack, Dog Lover Gift	PartialUpdate
+DECORATIVE_MAGNET	O-123	B07932LRHG	ASIN	I'm Awesome! Just Saying Oval Car Magnet 4x6 Inch	PartialUpdate
+DECORATIVE_MAGNET	M-34	B07BL35Q5M	ASIN	You are More Awesome Than You Realize! Dishwasher Magnet 4x4 Inch, USA Made	PartialUpdate
+DECORATIVE_MAGNET	O-153	B07CZVYGQ7	ASIN	Vegan! All Natural Colors Oval Car Magnet 4x6 Inch	PartialUpdate
+DECORATIVE_MAGNET	O-178	B09D8JN3WZ	ASIN	She Believed that She Could So She Did Oval Car Magnet 4x6 Inch	PartialUpdate
+DECORATIVE_MAGNET	5R-88	B0CWSBJY9G	ASIN	Back Off! I'm Anxious Car Magnet 5 Inch, Funny Gift, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	M-190	B0CXYPZK13	ASIN	Duck This and Duck That Crazy Cute Duck Car Magnet 5 in 2 Pack, Funny Gift	PartialUpdate
+DECORATIVE_MAGNET	M-189	B0CXYQHNC1	ASIN	Duck This! Crazy Cute Duck Car Magnet 6x4 Inch, Funny Gift, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	M-188	B0CXYVBXLR	ASIN	Duck that! Crazy Cute Duck Car Magnet 6x4 Inch, Funny Gift, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	M-196	B0D47ZLMN9	ASIN	Keep Back! Karen On Board Car Magnet 5x5 Inch, Funny Gift, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	R-85	B0F6TQ3PW7	ASIN	It's Okay Not to be Okay! Mental Health Awareness Ribbon Magnet 3.5x7 in	PartialUpdate
+DECORATIVE_MAGNET	5R-127	B0FGFPKZPW	ASIN	Mont Saint- Michel 5" Car Magnet, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	M-375	B0GDS9NKD3	ASIN	Remember When I Asked for Your Opinion? Funny Car Magnet 5x5 in, Funny Gift	PartialUpdate
+DECORATIVE_MAGNET	38-161	B0GY5DG36W	ASIN	My Other Car is Also A Car Funny Car Magnet 3x8 Inch, Funny Gift, USA Made	PartialUpdate
+DECORATIVE_MAGNET	R-171	B0H4WNZ57F	ASIN	It's Okay Not to be Okay! Mental Health Ribbon Magnet 3.5x7 Inch 2 Pack	PartialUpdate
+DECORATIVE_MAGNET	R-3	B076PK14C1	ASIN	White Lung Cancer Awareness Ribbon Magnet Decal, 3.5 x 7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-3AM	B076PK14C1	ASIN	White Lung Cancer Awareness Ribbon Magnet Decal, 3.5 x 7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-4	B076PM1C6B	ASIN	Teal Cervical and Ovarian Awareness Ribbon Magnet Decal, 3.5 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-4AM	B076PM1C6B	ASIN	Teal Cervical and Ovarian Awareness Ribbon Magnet Decal, 3.5 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-1	B076PMFCP3	ASIN	Pink Breast Cancer Awareness Ribbon Car Magnet Decal, 3.5 x 7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-1AM	B076PMFCP3	ASIN	Pink Breast Cancer Awareness Ribbon Car Magnet Decal, 3.5 x 7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-14	B076PMH2TC	ASIN	Blue Colon Cancer Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-14AM	B076PMH2TC	ASIN	Blue Colon Cancer Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-6	B076PP4PFX	ASIN	Peach Uterine Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-6AM	B076PP4PFX	ASIN	Peach Uterine Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-2	B076PP75D7	ASIN	Yellow Bladder Cancer Awareness Ribbon Magnet Decal, 3.5 x 7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-7	B076PPDB8R	ASIN	Orange Leukemia and Kidney Cancer Awareness Ribbon Magnet, 3.5 x7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-7AM	B076PPDB8R	ASIN	Orange Leukemia and Kidney Cancer Awareness Ribbon Magnet, 3.5 x7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-16	B076PPKHX9	ASIN	Aqua Prostate Cancer Awareness Ribbon Magnet Decal, 3.5x7 In	PartialUpdate
+DECORATIVE_MAGNET	R-16AM	B076PPKHX9	ASIN	Aqua Prostate Cancer Awareness Ribbon Magnet Decal, 3.5x7 In	PartialUpdate
+DECORATIVE_MAGNET	R-8	B076PQG9GL	ASIN	Lime Lymphoma Cancer Awareness Ribbon Magnet Decal, 3.5x7 inches	PartialUpdate
+DECORATIVE_MAGNET	R-8AM	B076PQG9GL	ASIN	Lime Lymphoma Cancer Awareness Ribbon Magnet Decal, 3.5x7 inches	PartialUpdate
+DECORATIVE_MAGNET	R-5	B076PQHYJS	ASIN	Purple Pancreatic and Leiomyosarcoma Cancer Ribbon Magnet, 3.5x7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-5AM	B076PQHYJS	ASIN	Purple Pancreatic and Leiomyosarcoma Cancer Ribbon Magnet, 3.5x7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-10	B076PQMFR9	ASIN	Grey Brain Cancer Ribbon Car Magnet 3.5x7 Inch, Awareness	PartialUpdate
+DECORATIVE_MAGNET	R-10AM	B076PQMFR9	ASIN	Grey Brain Cancer Ribbon Car Magnet 3.5x7 Inch, Awareness	PartialUpdate
+DECORATIVE_MAGNET	R-11	B076PR8DKP	ASIN	Green Liver Cancer Awareness Ribbon Car Magnet 3.5x7 Inch	PartialUpdate
+DECORATIVE_MAGNET	R-11AM	B076PR8DKP	ASIN	Green Liver Cancer Awareness Ribbon Car Magnet 3.5x7 Inch	PartialUpdate
+DECORATIVE_MAGNET	R-15	B076PVMW4K	ASIN	Black Melanoma Cancer Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-56	B09QLJX68D	ASIN	Support Esophageal and Stomach Cancer Awareness Ribbon Magnet, 3.5x7 Inch	PartialUpdate
+DECORATIVE_MAGNET	R-56AM	B09QLJX68D	ASIN	Support Esophageal and Stomach Cancer Awareness Ribbon Magnet, 3.5x7 Inch	PartialUpdate
+DECORATIVE_MAGNET	R-63	B09QRN9PRH	ASIN	Head and Neck Cancer Fighter Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-63AM	B09QRN9PRH	ASIN	Head and Neck Cancer Fighter Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-65	B09QRXXJ26	ASIN	Zebra Carcinoid Cancer Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
+DECORATIVE_MAGNET	R-65AM	B09QRXXJ26	ASIN	Zebra Carcinoid Cancer Awareness Ribbon Magnet Decal, 3.5x7 Inches	PartialUpdate
+DECORATIVE_MAGNET	EM-52	B0BKH6NVX8	ASIN	Poop Emoticon Car Magnet, 5 Inch	PartialUpdate
+DECORATIVE_MAGNET	M-172	B0CPT86SSN	ASIN	You've Been Ducked Cute Vehicle Duck Car Magnet 4x4 Inch 4 Pack, Funny Gift	PartialUpdate
+DECORATIVE_MAGNET	M-172AM	B0CPT86SSN	ASIN	You've Been Ducked Cute Vehicle Duck Car Magnet 4x4 Inch 4 Pack, Funny Gift	PartialUpdate
+DECORATIVE_MAGNET	M-173	B0CPT93RWN	ASIN	You've Been Ducked Cute Vehicle Duck Magnets, Ducking Game, 4 Pk, 4x4 in	PartialUpdate
+DECORATIVE_MAGNET	CBONE	B0CQ5XRC1S	ASIN	Customizable with Text Bone Magnet, 2x7 Inch	PartialUpdate
+DECORATIVE_MAGNET	C8X3-5	B0CZLZCJ85	ASIN	Custom Rectangle Car Magnet 8x3 Inch 5 Pack, Image and Text	PartialUpdate
+DECORATIVE_MAGNET	C10X3-5	B0CZM4L5T3	ASIN	Custom Rectangle Car Magnet 10x3 Inch 5 Pack, Image and Text	PartialUpdate
+DECORATIVE_MAGNET	C46R-5	B0CZPGCK4C	ASIN	Custom 4x6 Inch Rectangle Photo Refrigerator Magnet, 5 Pack, Photo & Text	PartialUpdate
+DECORATIVE_MAGNET	NB-1	B0D4RBRHV1	ASIN	Custom Printed Magnetic Name Tag Name 1.5x3 Inch, Logo Left	PartialUpdate
+DECORATIVE_MAGNET	C57ROSH	B0DG3WT5YQ	ASIN	Rosh Hashanah Photo Frame Custom Magnet, 5x7 inch, Upload Photo	PartialUpdate
+DECORATIVE_MAGNET	CRIBBON-1	B0DHDD8T65	ASIN	Custom Ribbon Car Magnet 7x3.5 Inch, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	C45POL-HAL2	B0DJSDD6GJ	ASIN	Custom Halloween Photo Magnet, 4x5 Inch Yellow Photo Frame, Photo and Text	PartialUpdate
+DECORATIVE_MAGNET	C45POL-HAL1	B0DJSM2TPP	ASIN	Custom Halloween Photo Magnet, 4x5 Inch Purple Photo Frame, Photo and Text	PartialUpdate
+DECORATIVE_MAGNET	CDIEC-1	B0DJWKNTB8	ASIN	Custom Die Cut Car Magnet, Personalized Shape and Design	PartialUpdate
+DECORATIVE_MAGNET	C45POL-HAN2	B0DM2MWYMQ	ASIN	Custom 4x5 Inch Hanukkah Photo Refrigerator Magnet with Text Option	PartialUpdate
+DECORATIVE_MAGNET	CDIEC-4	B0DNKLQXS4	ASIN	Custom Die Cut Car Magnet, Upload Logo, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	CLUGGAGE-1	B0DNTXHVMB	ASIN	Custom Luggage Tags for Travel Bags, Suitcase, 3x5 inch, 2 Pack	PartialUpdate
+DECORATIVE_MAGNET	C57CHRIS1	B0DPMPV47F	ASIN	Custom Christmas Red Photo Frame Refrigerator Magnet, Photo and text, 5"x7"	PartialUpdate
+DECORATIVE_MAGNET	CDIEC-7	B0DPR9FJVL	ASIN	Custom Photo Magnet, Die-cut, Add Photo & Text, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	CDIEC-6	B0DPRBRK9N	ASIN	Custom Pet Die-cut Magnet, Add Photo & Text, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	CASL2	B0DRZ386C1	ASIN	Customizable American Sign Language Fridge Magnet, 8x5 Inches, Add Logo	PartialUpdate
+DECORATIVE_MAGNET	CSTICKERDIE-1	B0GTJNSCGZ	ASIN	Custom Die-Cut Adhesive Sticker, Upload Logo, Made in USA	PartialUpdate
+DECORATIVE_MAGNET	R-118	B0H2FHC7N3	ASIN	Hodgkin's Lymphoma and Testicular Cancer Awareness Ribbon Magnet, 3.5"x7"	PartialUpdate
