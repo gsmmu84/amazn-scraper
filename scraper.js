@@ -29,11 +29,3 @@ app.get('/s', (req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
 });
-
-    res.status(500).json({ error: 'Failed to fetch product info', details: err.message });
-  }
-});
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
