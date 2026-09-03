@@ -1,0 +1,21 @@
+sku,asin,expected_title,live_title,match,live_issues_preexisting
+P-10,B01HGZX8PK,"American Flag Pawprint Car Magnet, Red White & Blue","American Flag Pawprint Car Magnet, Red White & Blue",YES,
+R-1,B076PMFCP3,"Pink Breast Cancer Awareness Ribbon Car Magnet Decal, 3.5 x 7 Inches","Pink Breast Cancer Awareness Ribbon Car Magnet Decal, 3.5 x 7 Inches",YES,
+M-98,B0BY3B9FL5,This Side Up Right Side Up Cruise Door Magnet 3x6 Inch,This Side Up Right Side Up Cruise Door Magnet 3x6 Inch,YES,
+B-9,B07772V946,"Dog Grandma and Grandpa Bone Car Magnet 2x7 Inch 2 Pack, Dog Lover Gift","Dog Grandma and Grandpa Bone Car Magnet 2x7 Inch 2 Pack, Dog Lover Gift",YES,"100893 missing [color] to link child to parent B0B88SNJ41"
+B-9AM,B07772V946,"Dog Grandma and Grandpa Bone Car Magnet 2x7 Inch 2 Pack, Dog Lover Gift","Dog Grandma and Grandpa Bone Car Magnet 2x7 Inch 2 Pack, Dog Lover Gift",YES,"100893 missing [color]"
+E-118,B0DCGW5K99,"Kamala Harris Waltz 2024 Car Magnet 4x6 Inch Oval, Election","Kamala Harris Waltz 2024 Car Magnet 4x6 Inch Oval, Election",YES,"'Corrected Title:' artifact now removed"
+CCRUISE-48,B0GPRCPJXY,"Custom Birthday Cake Cruise Door Magnet 8 Inch, Personalized, Made in USA","Custom Birthday Cake Cruise Door Magnet 8 Inch, Personalized, Made in USA",YES,
+C5INR-100,B0CPYK1VGF,"Customizable Round Magnet 5 Inch 100 pc, Made in USA","Customizable Round Magnet 5 Inch 100 pc, Made in USA",YES,
+R-118,B0H2FHC7N3,"Hodgkin's Lymphoma and Testicular Cancer Ribbon Magnet, 3.5x7 Inch 2 Pack","Hodgkin's Lymphoma and Testicular Cancer Ribbon Magnet, 3.5x7 Inch 2 Pack",YES,
+NB-1,B0D4RBRHV1,"Custom Printed Magnetic Name Tag Name 1.5x3 Inch, Logo Left",PENDING_PROPAGATION,PENDING,"resubmitted with correct productType LABEL; accepted"
+38-127,B0FSTGVRYR,Don’t Honk at Me My Dad is Dead 8x3 Inch Dark Humor Gag Gift Magnet,Don’t Honk at Me My Dad is Dead 8x3 Inch Dark Humor Gag Gift Magnet,YES,"100899 [color] collision with child B0FSTMB4NW under parent B0H5S9MKM8"
+O-1,B072FKY9B3,"13.1 Half Marathon Black Oval Car Magnet 4x6 Inch, Made in USA","13.1 Half Marathon Black Oval Car Magnet 4x6 Inch, Made in USA",YES,
+M-238,B0DQ2C76WC,"Where My Ho's at? Christmas Car Magnet 5x4.5 Inch, Funny Gift, USA Made","Where My Ho's at? Christmas Car Magnet 5x4.5 Inch, Funny Gift, USA Made",YES,
+CASL2,B0DRZ386C1,"Customizable American Sign Language Fridge Magnet, 8x5 Inches, Add Logo","Customizable American Sign Language Fridge Magnet, 8x5 Inches, Add Logo",YES,
+R-9,B076PRYBP4,"All Cancer Ribbon Car Magnet 3.5x7 Inch, Awareness","All Cancer Ribbon Car Magnet 3.5x7 Inch, Awareness",YES,
+V-3,B0F94K3RNC,"Magnetic Vent Cover 13x6 Inch Fits 12x5.5 Vents, 3 Pack","Magnetic Vent Cover 13x6 Inch Fits 12x5.5 Vents, 3 Pack",YES,"listing productType is BUILDING_MATERIAL; update still accepted"
+M-100,B0BY393FRY,Combo This Side Up Right Cruise Door Magnet 3x6 Inch 2 Pack,Combo This Side Up Right Cruise Door Magnet 3x6 Inch 2 Pack,YES,
+CDIEC-2,B0DMQKV8HY,"Custom Photo Magnet, Photo Booth, Add Photo & Text, Die-Cut","Custom Photo Magnet, Photo Booth, Add Photo & Text, Die-Cut",YES,
+R-191,B0H6GN65S8,"Ehlers-Danlos Syndrome Car Magnet 3.5x7 Inch Ribbon, Made in USA","Ehlers-Danlos Syndrome Car Magnet 3.5x7 Inch Ribbon, Made in USA",YES,"100232 PT06 image flagged explicit/child model - ATTRIBUTE_SUPPRESSED"
+C10X3-50,B0DSGKTJ7V,"Custom Rectangle Car Magnet 10x3 Inch 50 Pack, Image and Text","Custom Rectangle Car Magnet 10x3 Inch 50 Pack, Image and Text",YES,
