@@ -74,6 +74,64 @@ python3 scripts/image_metrics.py compare before.json after.json
 
 Always run step 4. It is what caught the area-fill bug described in `findings.md`.
 
+## Angled-layout experiment
+
+Renders each design at several rotations so a designer reviews options instead of producing them:
+
+```bash
+python3 scripts/image_metrics.py angle --dir ./art --out ./angles --angles 0,15,30,45
+```
+
+Writes one JPEG per design per angle, a side-by-side `__compare.jpg` per design, and
+`angle-report.json`. Rotation happens at native resolution before downscaling, so edges stay clean.
+
+### Does rotating actually make the product bigger?
+
+Only for genuinely long products. For a rectangle of aspect *r* inscribed in a square:
+
+- axis-aligned area = `1/r`
+- rotated 45° area = `2r/(r+1)²`
+
+These cross at **r ≈ 2.414**. Area also *dips* between 0° and 45°, so only those two are
+real candidates — intermediate angles are strictly worse on area.
+
+| Product | Aspect | Rotation helps area? |
+|---|---|---|
+| 3×8″ bumper | 2.67 | ✅ yes |
+| 3.5×7″ ribbon | 2.00 | ❌ no, ~9–11% worse |
+| 4×6″ oval | 1.50 | ❌ no, much worse |
+| Round / square | 1.00 | ❌ no |
+
+Measured on real art the tool reports `+13.5%` ink for a 2.57-aspect bumper at 45°, and `0°` best
+for every ribbon — matching the theory. `rotation_predicted_to_help` in the report flags which
+designs are even worth testing.
+
+**Area is not the only reason to rotate.** At 45° the whitespace becomes four corner triangles
+instead of two side slabs, which reads as more dynamic and more distinctive in a grid of
+axis-aligned competitors. That can justify accepting less area — the tool gives you the number so
+the trade is explicit rather than assumed.
+
+Two things the sheets make obvious:
+
+- **15°–30° is the worst of both worlds** — less area *and* it reads as accidentally crooked.
+  If you angle, commit to 45°.
+- **Rotated text is harder to read at thumbnail size.** These designs are mostly type, so this is
+  the real risk, not the geometry. Judge legibility on the compare sheets at actual thumbnail
+  size before shipping anything.
+
+### Testing it without guessing
+
+Etsy has no native image A/B test, but this catalog has something better: lots of near-identical
+colourway and text variants. `scan` already groups them as `near_duplicate_clusters`.
+
+Use them as matched pairs — rotate one member of a cluster, leave the other axis-aligned, and
+compare views and favourites over several weeks. Because the designs are near-identical, the
+difference isolates the layout rather than the artwork. Run several pairs at once; a single pair
+will not clear the noise.
+
+Give it time. Editing a listing can disturb its search placement briefly, so discard the first
+week or so rather than reading it as a result.
+
 ## Commands
 
 | Command | Purpose |
@@ -81,6 +139,7 @@ Always run step 4. It is what caught the area-fill bug described in `findings.md
 | `scan --dir` / `scan --tsv` | Measure local images, or download and measure from a listings TSV |
 | `crop` | Tight content crops at native resolution, ready for an external upscaler |
 | `compose` | Pad crops onto a square canvas at a target long-edge fill |
+| `angle` | Render rotated variants + compare sheets for the scroll-stopping test |
 | `compare` | Diff two `metrics.json` files, before vs after |
 
 `scan` writes `metrics.json` (full per-image data plus flag sets) and a flat `metrics.csv`.

@@ -40,7 +40,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 
 Image.MAX_IMAGE_PIXELS = None  # print-resolution source art is legitimately huge
 
@@ -535,6 +535,146 @@ def cmd_compose(args) -> None:
     print(f"composed {n} images at {size}x{size}, {fill:.0%} fill -> {out}", file=sys.stderr)
 
 
+def rotation_helps_area(aspect_ratio: float) -> bool:
+    """Does rotating to 45 degrees give a larger inscribed area than axis-aligned?
+
+    For a rectangle of aspect r (long:short) inscribed in a square:
+        axis-aligned area = 1/r
+        rotated 45 area   = 2r/(r+1)^2
+    These cross at r = 1/(sqrt(2)-1) ~= 2.414. Only candidates are 0 and 45 degrees;
+    area dips in between. So long thin products gain from rotation and squarer ones lose.
+    """
+    return aspect_ratio > 1 / (2 ** 0.5 - 1)
+
+
+def predicted_area(aspect_ratio: float, angle: float, fill: float) -> float:
+    """Fraction of a square canvas a rectangle of this aspect occupies when rotated."""
+    r = max(aspect_ratio, 1 / aspect_ratio)
+    th = np.radians(angle)
+    w, h = 1.0, r
+    bw = w * abs(np.cos(th)) + h * abs(np.sin(th))
+    bh = w * abs(np.sin(th)) + h * abs(np.cos(th))
+    s = fill / max(bw, bh)
+    return float(w * h * s * s)
+
+
+def cmd_angle(args) -> None:
+    """Generate rotated variants of each design for a scroll-stopping test.
+
+    Rotates at native resolution before downscaling, so edges stay clean, and
+    measures ink fraction (actual product pixels / canvas) rather than bounding-box
+    fill -- bbox fill is meaningless for rotated art.
+    """
+    out = Path(args.out)
+    out.mkdir(parents=True, exist_ok=True)
+    angles = [float(a) for a in args.angles.split(",")]
+    size, fill = args.size, args.fill
+    report: dict[str, dict] = {}
+
+    try:
+        font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 22)
+    except Exception:
+        font = ImageFont.load_default()
+
+    for path, label in iter_local(Path(args.dir)):
+        try:
+            with Image.open(path) as probe:
+                probe.load()
+                full = flatten_alpha(probe)
+        except Exception as exc:
+            print(f"  skip {label}: {exc}", file=sys.stderr)
+            continue
+
+        # Tight-crop to content first, so rotation pivots on the product, not the canvas.
+        small = full
+        if max(full.size) > ANALYSIS_PX:
+            sc = ANALYSIS_PX / max(full.size)
+            small = full.resize((round(full.width * sc), round(full.height * sc)), Image.LANCZOS)
+        (x0, y0, x1, y1), bg, _ = content_bbox(np.asarray(small))
+        fx, fy = full.width / small.width, full.height / small.height
+        art = full.crop((
+            max(0, int(x0 * fx)), max(0, int(y0 * fy)),
+            min(full.width, int(x1 * fx)), min(full.height, int(y1 * fy)),
+        ))
+        if min(art.size) < 8:
+            print(f"  skip {label}: no content found", file=sys.stderr)
+            continue
+
+        bg_t = tuple(int(v) for v in bg)
+        art_aspect = max(art.size) / min(art.size)
+        stem = Path(label).stem
+        variants, rows = [], []
+
+        for ang in angles:
+            # Rotate at native resolution, expanding the canvas, then trim the slack.
+            rot = art.rotate(ang, expand=True, resample=Image.BICUBIC, fillcolor=bg_t)
+            ra = np.asarray(rot)
+            (rx0, ry0, rx1, ry1), _, _ = content_bbox(ra)
+            rot = rot.crop((rx0, ry0, rx1, ry1))
+
+            scale = (size * fill) / max(rot.size)
+            new = (max(1, round(rot.width * scale)), max(1, round(rot.height * scale)))
+            resized = rot.resize(new, Image.LANCZOS)
+
+            canvas = Image.new("RGB", (size, size), bg_t)
+            canvas.paste(resized, ((size - new[0]) // 2, (size - new[1]) // 2))
+
+            dest = out / f"{stem}__{int(ang):02d}deg.jpg"
+            canvas.save(dest, "JPEG", quality=args.quality, optimize=True, subsampling=0)
+
+            m = measure_image(dest, dest.name)
+            rows.append({
+                "angle": ang,
+                "ink_fraction": m.get("ink_fraction"),
+                "upscale_needed": round(scale, 2),
+                "file": dest.name,
+            })
+            variants.append((ang, canvas, m.get("ink_fraction")))
+
+        base = rows[0]["ink_fraction"] or 0.0001
+        best = max(rows, key=lambda r: r["ink_fraction"] or 0)
+        report[stem] = {
+            "content_aspect": round(art_aspect, 3),
+            "art_native": list(art.size),
+            "rotation_predicted_to_help": rotation_helps_area(art_aspect),
+            "variants": rows,
+            "best_angle": best["angle"],
+            "best_gain_vs_0deg": round((best["ink_fraction"] / base) - 1, 3),
+        }
+
+        # Contact sheet so a designer compares at a glance instead of opening files.
+        if args.sheet:
+            t = args.sheet_tile
+            sheet = Image.new("RGB", (len(variants) * (t + 8) + 8, t + 44), (245, 245, 245))
+            d = ImageDraw.Draw(sheet)
+            for i, (ang, img, ink) in enumerate(variants):
+                x = 8 + i * (t + 8)
+                sheet.paste(img.resize((t, t), Image.LANCZOS), (x, 8))
+                d.rectangle([x, 8, x + t - 1, 8 + t - 1], outline=(180, 180, 180))
+                d.rectangle([x, 8 + t, x + t, 8 + t + 34], fill=(25, 25, 25))
+                d.text((x + 6, 8 + t + 6), f"{int(ang)}deg  ink {ink:.3f}", fill=(255, 255, 255), font=font)
+            sheet.save(out / f"{stem}__compare.jpg", "JPEG", quality=88, optimize=True)
+
+    (out / "angle-report.json").write_text(json.dumps(report, indent=1))
+
+    print(f"\n{'design':<30} {'aspect':>7} {'best':>6} {'gain':>8}  per-angle ink fraction", file=sys.stderr)
+    print("-" * 94, file=sys.stderr)
+    for stem, r in report.items():
+        per = "  ".join(f"{int(v['angle'])}d:{v['ink_fraction']:.3f}" for v in r["variants"])
+        flag = "" if r["rotation_predicted_to_help"] else "  (theory: 0deg best)"
+        print(
+            f"{stem[:29]:<30} {r['content_aspect']:>7.2f} {int(r['best_angle']):>5}d "
+            f"{r['best_gain_vs_0deg']:>+7.1%}  {per}{flag}",
+            file=sys.stderr,
+        )
+    print(f"\nwrote variants + compare sheets -> {out}", file=sys.stderr)
+    print(
+        "\nreminder: ink fraction is only the area question. Rotated text is harder to\n"
+        "read at thumbnail size -- check legibility on the compare sheets before shipping.",
+        file=sys.stderr,
+    )
+
+
 def cmd_compare(args) -> None:
     before = json.loads(Path(args.before).read_text())
     after = json.loads(Path(args.after).read_text())
@@ -610,6 +750,21 @@ def main() -> None:
     p.add_argument("--allow-shrink", action="store_true",
                    help="permit downscaling art that already exceeds the target fill")
     p.set_defaults(func=cmd_compose)
+
+    g = sub.add_parser("angle", help="generate rotated variants for a scroll-stopping test")
+    g.add_argument("--dir", required=True, help="folder of source art or existing mains")
+    g.add_argument("--out", default="./angles")
+    g.add_argument("--angles", default="0,15,30,45",
+                   help="comma-separated degrees to render (default 0,15,30,45)")
+    g.add_argument("--size", type=int, default=2000)
+    g.add_argument("--fill", type=float, default=0.93,
+                   help="fraction of the canvas the rotated bounding box spans")
+    g.add_argument("--quality", type=int, default=92)
+    g.add_argument("--sheet", action="store_true", default=True,
+                   help="also write a side-by-side compare sheet per design")
+    g.add_argument("--no-sheet", dest="sheet", action="store_false")
+    g.add_argument("--sheet-tile", type=int, default=380)
+    g.set_defaults(func=cmd_angle)
 
     d = sub.add_parser("compare", help="diff two metrics.json files")
     d.add_argument("before")

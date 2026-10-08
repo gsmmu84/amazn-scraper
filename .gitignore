@@ -11,6 +11,7 @@ etsy-audit/**/.img-cache/
 etsy-audit/**/crops/
 etsy-audit/**/crops-up/
 etsy-audit/**/final/
+etsy-audit/**/angles/
 etsy-audit/**/before.json
 etsy-audit/**/after.json
 etsy-audit/**/before.csv
