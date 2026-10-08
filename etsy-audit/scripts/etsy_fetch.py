@@ -103,6 +103,32 @@ def main_image(listing: dict) -> dict | None:
     return sorted(images, key=lambda im: im.get("rank", 1))[0]
 
 
+def fetch_images(listing_ids: list[int], key: str) -> dict[int, dict]:
+    """Fetch main images for a set of listings.
+
+    /shops/{id}/listings/active silently ignores `includes=Images` and returns no
+    image data at all, so images have to come from /listings/batch, which honours
+    it. That endpoint takes up to 100 ids per call.
+    """
+    found: dict[int, dict] = {}
+    total = len(listing_ids)
+    for start in range(0, total, PAGE_LIMIT):
+        chunk = listing_ids[start:start + PAGE_LIMIT]
+        params = {"listing_ids": ",".join(str(i) for i in chunk), "includes": "Images"}
+        try:
+            data = get("/listings/batch", key, params)
+        except urllib.error.HTTPError as exc:
+            print(f"  image batch failed at {start}: {exc.code}", file=sys.stderr)
+            continue
+        for lst in data.get("results", []):
+            img = main_image(lst)
+            if img:
+                found[int(lst["listing_id"])] = img
+        print(f"  images {min(start + PAGE_LIMIT, total)}/{total}", file=sys.stderr)
+        time.sleep(REQUEST_SPACING_S)
+    return found
+
+
 def fetch_listings(shop_id: int, key: str, max_listings: int | None) -> list[dict]:
     out: list[dict] = []
     offset = 0
@@ -177,9 +203,19 @@ def main() -> None:
     shop_id = args.shop_id or resolve_shop_id(args.shop, key)
     listings = fetch_listings(shop_id, key, args.max)
 
+    # Images come from a second pass; the active-listings endpoint omits them.
+    print(f"fetching images for {len(listings)} listings", file=sys.stderr)
+    image_map = fetch_images([int(l["listing_id"]) for l in listings], key)
+    if listings and not image_map:
+        sys.exit(
+            "\nNo images returned for any listing.\n"
+            "Check /listings/batch?listing_ids=<id>&includes=Images by hand -- the\n"
+            "response shape may have changed again."
+        )
+
     rows, sidecar, missing = [], [], []
     for i, lst in enumerate(listings, 1):
-        img = main_image(lst)
+        img = image_map.get(int(lst["listing_id"]))
         if not img:
             missing.append(lst.get("listing_id"))
             continue
@@ -204,8 +240,8 @@ def main() -> None:
             ),
             "taxonomy": lst.get("taxonomy_id"),
             "main_image": url,
-            "image_count": len(lst.get("images") or []),
             "main_image_px": [img.get("full_width"), img.get("full_height")],
+            "alt_text": img.get("alt_text") or None,
         })
 
     out = Path(args.out)
@@ -225,14 +261,36 @@ def main() -> None:
         print(f"{len(missing)} listings had no usable main image: {missing[:10]}", file=sys.stderr)
 
     # The API reports stored dimensions, so low-res listings are visible before download.
-    small = [s for s in sidecar if s["main_image_px"][0] and min(s["main_image_px"]) < 2000]
+    sized = [s for s in sidecar if s["main_image_px"][0]]
+    small = [s for s in sized if min(s["main_image_px"]) < 2000]
     if small:
-        print(f"\n{len(small)} of {len(sidecar)} main images are below 2000px:", file=sys.stderr)
+        print(f"\n{len(small)} of {len(sized)} main images are below 2000px:", file=sys.stderr)
+        buckets: dict[str, int] = {}
+        for s in small:
+            w, h = s["main_image_px"]
+            buckets[f"{w}x{h}"] = buckets.get(f"{w}x{h}", 0) + 1
+        for dims, n in sorted(buckets.items(), key=lambda kv: -kv[1]):
+            print(f"  {dims:>12}  {n}", file=sys.stderr)
+        print("\n  worst by size:", file=sys.stderr)
         for s in sorted(small, key=lambda s: min(s["main_image_px"]))[:15]:
             w, h = s["main_image_px"]
-            print(f"  {s['listing_id']}  {w}x{h}  {(s['title'] or '')[:58]}", file=sys.stderr)
-        print("\nnext: image_metrics.py scan --tsv "
-              f"{out} --out before.json", file=sys.stderr)
+            print(f"    {s['listing_id']}  {w}x{h}  {(s['title'] or '')[:54]}", file=sys.stderr)
+        low_csv = out.with_name(out.stem + "-low-res.csv")
+        with low_csv.open("w", encoding="utf-8") as fh:
+            fh.write("listing_id,width,height,title,url\n")
+            for s in sorted(small, key=lambda s: min(s["main_image_px"])):
+                w, h = s["main_image_px"]
+                t = (s["title"] or "").replace('"', "'")
+                fh.write(f'{s["listing_id"]},{w},{h},"{t}",{s["url"]}\n')
+        print(f"\n  full list -> {low_csv}", file=sys.stderr)
+    else:
+        print(f"\nall {len(sized)} main images are 2000px or larger", file=sys.stderr)
+
+    no_alt = [s for s in sidecar if not s["alt_text"]]
+    if no_alt:
+        print(f"{len(no_alt)} of {len(sidecar)} main images have no alt text", file=sys.stderr)
+
+    print(f"\nnext: image_metrics.py scan --tsv {out} --out before.json", file=sys.stderr)
 
 
 if __name__ == "__main__":
