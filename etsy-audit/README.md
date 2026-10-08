@@ -28,20 +28,43 @@ invent.
 
 ## Audit a catalog
 
-With an Etsy API keystring (free, self-registered at `etsy.com/developers/create-app`; reading a
-shop's public active listings needs no OAuth and no shared secret):
+Register an app at `etsy.com/developers/create-app` (free). You need **both** values it gives
+you — the `x-api-key` header must be `keystring:shared_secret`, joined by a colon. A bare
+keystring is rejected with *"Shared secret is required in x-api-key header."* No OAuth is needed
+for reading your own shop's public active listings, but the shared secret is.
 
 ```bash
-export ETSY_KEYSTRING=xxxxxxxxxxxxxxxxxxxxxxxx
+export ETSY_KEYSTRING='keystring:shared_secret'
+# or, equivalently:
+#   export ETSY_KEYSTRING=keystring
+#   export ETSY_SHARED_SECRET=shared_secret
 
 python3 scripts/etsy_fetch.py --shop MagnetMeUp --out data/listings.tsv
 python3 scripts/image_metrics.py scan --tsv data/listings.tsv --out before.json
 ```
 
+Windows PowerShell:
+
+```powershell
+$env:ETSY_KEYSTRING = "keystring:shared_secret"
+py scripts\etsy_fetch.py --shop MagnetMeUp --out data\listings.tsv
+```
+
+Check the credentials before a long run:
+
+```bash
+curl -s -H "x-api-key: $ETSY_KEYSTRING" https://api.etsy.com/v3/application/openapi-ping
+```
+
+An `application_id` in the response means you are good.
+
 1,660 listings is ~17 requests. `etsy_fetch.py` prints sub-2000px listings straight from the API
 response, so the worst offenders are visible before anything is downloaded.
 
-Never commit the keystring — `.gitignore` covers `*.key`, `.env` and the cache/output directories.
+**The shared secret is the sensitive half.** Keep it out of screenshots, chat logs, and the
+repository. `.gitignore` covers `*.key`, `.env` and the cache/output directories, but prefer an
+environment variable or `--key-file` over `--key`, since a value passed on the command line is
+written to your shell history.
 
 Or audit local source art directly, which needs no credentials at all:
 

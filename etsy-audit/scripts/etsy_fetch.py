@@ -4,12 +4,27 @@
 Writes a TSV that `image_metrics.py scan --tsv` consumes, plus a JSON sidecar
 with titles, prices and every image rendition.
 
-Credentials: pass --key, set ETSY_KEYSTRING, or put the keystring in a file and
-use --key-file. Only the keystring is needed -- reading a shop's public active
-listings requires no OAuth and no shared secret.
+Credentials: the x-api-key header must be "keystring:shared_secret" -- BOTH halves,
+joined by a colon. Etsy rejects a bare keystring with
+"Shared secret is required in x-api-key header." No OAuth is needed for reading a
+shop's public active listings, but the shared secret is.
 
-    export ETSY_KEYSTRING=xxxxxxxxxxxxxxxxxxxxxxxx
+Supply them either way:
+
+    # combined
+    export ETSY_KEYSTRING='keystring:shared_secret'
+
+    # or separately, and they get joined for you
+    export ETSY_KEYSTRING=keystring
+    export ETSY_SHARED_SECRET=shared_secret
+
     python3 etsy_fetch.py --shop MagnetMeUp --out ../data/listings.tsv
+
+Windows PowerShell uses $env:ETSY_KEYSTRING = "keystring:shared_secret".
+
+The shared secret is the sensitive half -- keep it out of screenshots, chat logs
+and the repository. Prefer --key-file or an environment variable over --key, since
+a value passed on the command line lands in your shell history.
 
 1,660 listings is ~17 requests at the API's 100-per-page maximum.
 
@@ -128,8 +143,10 @@ def main() -> None:
     ap.add_argument("--shop-id", type=int, help="skip the name lookup")
     ap.add_argument("--out", default="listings.tsv")
     ap.add_argument("--json-out", help="sidecar with titles/prices/all renditions")
-    ap.add_argument("--key", help="Etsy keystring (prefer ETSY_KEYSTRING or --key-file)")
-    ap.add_argument("--key-file", help="file containing the keystring")
+    ap.add_argument("--key", help="'keystring:shared_secret' (prefer env var or --key-file; "
+                                  "command-line values land in shell history)")
+    ap.add_argument("--secret", help="shared secret, if --key/ETSY_KEYSTRING holds only the keystring")
+    ap.add_argument("--key-file", help="file containing 'keystring:shared_secret'")
     ap.add_argument("--max", type=int, help="stop after N listings (for a smoke test)")
     args = ap.parse_args()
 
@@ -137,8 +154,25 @@ def main() -> None:
     if not key and args.key_file:
         key = Path(args.key_file).read_text().strip()
     if not key:
-        sys.exit("no keystring: pass --key, --key-file, or set ETSY_KEYSTRING")
+        sys.exit(
+            "no credentials. Set ETSY_KEYSTRING to 'keystring:shared_secret',\n"
+            "or set ETSY_KEYSTRING and ETSY_SHARED_SECRET separately,\n"
+            "or pass --key-file."
+        )
     key = key.strip()
+
+    # Etsy wants both halves in x-api-key. Join them if given separately.
+    secret = args.secret or os.environ.get("ETSY_SHARED_SECRET")
+    if ":" not in key and secret:
+        key = f"{key}:{secret.strip()}"
+    if ":" not in key:
+        sys.exit(
+            "Etsy needs the shared secret too: x-api-key must be "
+            "'keystring:shared_secret'.\n"
+            "Reveal the shared secret on your app's page (the eye icon beside it), then\n"
+            "  set ETSY_KEYSTRING='<keystring>:<shared_secret>'\n"
+            "  or set ETSY_SHARED_SECRET alongside ETSY_KEYSTRING."
+        )
 
     shop_id = args.shop_id or resolve_shop_id(args.shop, key)
     listings = fetch_listings(shop_id, key, args.max)
