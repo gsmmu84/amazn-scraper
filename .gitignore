@@ -1,1 +1,19 @@
 node_modules
+
+# credentials — never commit
+*.key
+.env
+.env.*
+etsy-audit/**/*.keystring
+
+# audit working directories and outputs
+etsy-audit/**/.img-cache/
+etsy-audit/**/crops/
+etsy-audit/**/crops-up/
+etsy-audit/**/final/
+etsy-audit/**/before.json
+etsy-audit/**/after.json
+etsy-audit/**/before.csv
+etsy-audit/**/after.csv
+__pycache__/
+*.pyc

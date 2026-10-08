@@ -6,6 +6,23 @@
 **Date:** 2026-10-08
 **Status:** ⚠️ Partial. Full 1,660-listing audit is blocked — see [Unblocking](#unblocking-the-full-audit).
 
+> ### 🔴 Correction — first revision got framing wrong
+>
+> The first version of this report claimed the awareness-ribbon template "wastes ~⅓ of the frame"
+> and recommended re-cropping it. **That was wrong, and acting on it would have wasted work.**
+>
+> It judged framing by **area fill** (content area ÷ canvas area). For an elongated product on a
+> square canvas, area fill has a hard geometric ceiling: a 3.5×7″ magnet is 1:2, so even *perfect*
+> framing caps it near **0.52**. The ribbon magnets measured 0.46–0.48 — i.e. within 5 points of
+> the best their shape allows. The "26% side margins" were forced by aspect ratio, not wasted space.
+>
+> Re-measured on **long-edge fill** (content long edge ÷ canvas long edge), which is
+> aspect-independent, every one of the 38 listings scores **0.893–1.000, mean 0.968**.
+> **Nothing is underframed.** The framing across this catalog is genuinely good and very consistent.
+>
+> The bug was caught by running the repair pipeline on fixtures and seeing mean fill *regress*
+> after a "fix". Findings 1 (resolution) and 3 (duplicates) are unaffected and still stand.
+
 ---
 
 ## Method
@@ -17,12 +34,18 @@ For each listing the **main image** was pulled at both `il_fullxfull` (true stor
 |---|---|
 | True pixel dimensions | Listings below Etsy's 2000px recommendation |
 | Aspect ratio | Crop risk in square/4:3 search thumbnails |
-| Content bounding box ÷ canvas (`fill`) | Wasted dead space — product reads small in the grid |
-| Per-side margins (T/R/B/L) | *Which* direction the dead space sits |
+| **Long-edge fill** | Apparent size in the grid — the correct framing metric |
+| Area fill + its geometric ceiling | Area fill alone is misleading; the ceiling says how much is shape |
+| Centering offset | Product sitting off-centre on its canvas |
+| Minimum margin | Artwork flush against the canvas edge |
 | Center-square crop retention | Whether the search thumbnail clips the product |
 | Background modal colour | Backdrop consistency across the catalog |
 | 64-bit perceptual hash (DCT) | Near-duplicate main images between listings |
 | Mean saturation / edge density | Flat-art vs photo, visual busyness |
+
+**Judge framing on long-edge fill, never area fill.** Area fill is reported alongside its
+geometric ceiling precisely so a low value can be attributed to product shape rather than
+mistaken for a defect.
 
 Script: [`scripts/image_metrics.py`](scripts/image_metrics.py) — reusable as-is for all 1,660.
 
@@ -46,39 +69,52 @@ Several are recent listings (ID prefix `43…`, `42…`), so this is an *active*
 upload workflow, not legacy debt. Worth finding whichever tool or export preset produces 500px
 and fixing it at source.
 
-### 2. Dead space — the awareness-ribbon template wastes ~⅓ of the frame 🔴
+### 2. Framing — nothing wrong here ✅
 
-Eight listings fill under 55% of their canvas. Seven of those eight are the **3.5×7″ awareness
-ribbon** design, and they share a near-identical signature of ~26% empty margin on *both* sides:
+Measured correctly, framing is a **strength** of this catalog, not a weakness.
 
-| # | Listing | Fill | Left margin | Right margin |
+| Long-edge fill | Count |
+|---|---|
+| 0.95 – 1.00 | 26 |
+| 0.90 – 0.95 | 11 |
+| 0.85 – 0.90 | 1 |
+| below 0.85 | **0** |
+
+Range 0.893 – 1.000, mean **0.968**. For comparison, the awareness-ribbon listings that the first
+revision flagged as problems score 0.900 – 0.958 — comfortably well-framed.
+
+The low *area* fill on those listings is entirely explained by product shape:
+
+| Listing | Area fill | Ceiling for its shape | Long-edge fill | Verdict |
 |---|---|---|---|---|
-| 6 | 4302645815 — "Please Be Patient I'm Only 8 Years Old" (3×8″) | **31.9%** | 4.6% | 4.6% (⚠️ 30%/34% top/bottom) |
-| 9 | 4298408891 — "Not All Wounds are Visible" | 41.5% | 27.2% | 26.7% |
-| 10 | 4298397528 — "It's Okay Not to be Okay" | 41.6% | 27.2% | 26.7% |
-| 8 | 4298412757 — Mental Health green ribbon heart | 45.8% | 25.6% | 26.1% |
-| 11 | 4298394489 — Bone Cancer Awareness | 45.7% | 25.6% | 26.1% |
-| 7 | 4298404187 — Skin Cancer Awareness | 46.0% | 25.8% | 25.8% |
-| 5 | 4302612271 — Bone Cancer Fighter | 47.7% | 28.8% | 21.4% |
-| 4 | 4302608098 — Bone Cancer Survivor | 48.1% | 28.4% | 21.4% |
+| 4302645815 — Please Be Patient (3×8″) | 0.319 | 0.387 | 0.908 | fine |
+| 4298408891 — Not All Wounds are Visible | 0.415 | 0.512 | 0.900 | fine |
+| 4298397528 — It's Okay Not to be Okay | 0.416 | 0.511 | 0.902 | fine |
+| 4298394489 — Bone Cancer Awareness | 0.457 | 0.510 | 0.947 | fine |
+| 4298404187 — Skin Cancer Awareness | 0.460 | 0.509 | 0.951 | fine |
+| 4302608098 — Bone Cancer Survivor | 0.481 | 0.524 | 0.958 | fine |
 
-**Why it matters:** Etsy search renders main images as small thumbnails. A product occupying 42%
-of its canvas appears roughly *half the size* of a competitor's that fills 95% — in the same grid,
-at the same price. This is the single highest-leverage fix in the audit, because it costs nothing
-but a re-crop.
+Each sits within 5–9 points of the maximum area fill its aspect ratio permits on a square canvas.
+There is no re-cropping to do. **Do not crop these tighter** — on the 500×500 ones it would
+actively hurt, since it throws away pixels an upscaler then has to invent.
 
-**Fix:** scale the artwork up so the long edge sits at ~92–95% of the canvas, keeping a small even
-margin. For an elongated 3.5×7 or 3×8 magnet on a square canvas, either rotate it slightly to use
-the diagonal, or shoot/compose it at an angle so it spans more of the frame.
+### 2b. Two minor framing notes 🟡
 
-**#6 is the worst case in the set** and fails on a different axis — 30% top *and* 34% bottom
-margin, meaning a wide 3×8 bumper magnet is floating in a letterboxed band with only ~32% of the
-frame used.
+**Off-centre (2 listings).** Opposing margins differ by ~7 points:
 
-**Extrapolation (unverified):** if this is template-level rather than per-listing, the
-**Awareness Ribbons** category (73 listings) is likely affected wholesale, and the 4×6 oval
-geometry in **Country Flags and Ovals** (91 listings) may share it. Confirming that is exactly
-what the full run is for.
+| Listing | Left | Right | Offset |
+|---|---|---|---|
+| 4302608098 — Bone Cancer Survivor | 28.4% | 21.4% | 0.070 |
+| 4302612271 — Bone Cancer Fighter | 28.8% | 21.4% | 0.074 |
+
+Cosmetic, and the same pair are also the near-duplicates in finding 3 — so if you rework them,
+fix both at once.
+
+**Artwork flush to the canvas edge (22 of 38).** At least one side has a zero margin. This is
+plausibly deliberate — flat art bleeding to the edge is a normal choice — and the square-crop
+check shows nothing is currently being clipped. Flagged only so the decision is conscious: if
+Etsy ever tightens thumbnail cropping, zero-margin art has no tolerance. A 1–2% margin would
+remove the risk at no visual cost. **Low priority.**
 
 ### 3. Near-duplicate main images — 3 clusters 🟡
 
@@ -103,8 +139,7 @@ This also matters for Etsy's own de-duplication of visually similar results from
 
 All 38 are **1:1 square**, and center-square crop retention is **1.000** across the board. No
 listing loses product to thumbnail cropping. Given how many of these magnets are elongated
-(3×8, 3.5×7, 4×6), padding to square is the right call — the issue is *how much* padding, which
-is finding #2, not the aspect itself.
+(3×8, 3.5×7, 4×6), padding to square is the right call, and the amount of padding is right too.
 
 ### 5. Background consistency — one outlier 🟡
 
@@ -118,29 +153,27 @@ Not necessarily wrong — contextual shots often outperform flat art. But as a o
 otherwise very disciplined white-background grid. Decide deliberately: either it's a test worth
 extending, or it's an inconsistency worth aligning.
 
-### 6. Highest-performing framing, for reference ✅
-
-Listings already filling the frame well, useful as the internal standard to copy:
-
-| Listing | Fill |
-|---|---|
-| 4304355724 — Caution New Driver | 100% |
-| 1890426588 — Bucked Bronco 4-pack | 100% |
-| 1888851442 — No Elon Face | 98.6% |
-| 1897464691 — Cat/Dog Photo Magnet | 98.9% |
-| 1905089263 / 1905082545 — Caution Teen Driver | 92.4% |
-
 ---
 
 ## Priority
 
 | # | Action | Scope in sample | Effort |
 |---|---|---|---|
-| 1 | Re-crop awareness-ribbon template to ~93% frame fill | 8 listings | Low — one template |
-| 2 | Re-upload the eight 500×500 mains at 2000px | 8 listings | Low |
+| 1 | **Fix whatever export path emits 500px images** | Process | Low — highest long-term value |
+| 2 | Re-export the ten sub-2000px mains from source art | 10 listings | Low, if source art exists |
 | 3 | Differentiate the two text-variant duplicate pairs | 4 listings | Medium — needs art |
 | 4 | Decide on white vs contextual backgrounds | 1 listing, shop-wide policy | Decision |
-| 5 | Fix whatever export path emits 500px images | Process | Low, highest long-term value |
+| 5 | Re-centre the two off-centre ribbon mains | 2 listings | Trivial, bundle with #3 |
+| 6 | Consider a 1–2% safety margin on edge-flush art | 22 listings | Optional |
+
+Item 1 leads deliberately. Several low-resolution listings have recent IDs (`43…`, `42…`), so this
+is an active regression rather than legacy debt — fixing the pipeline stops the problem recurring,
+which is worth more than fixing ten files.
+
+**Note on resolution vs framing:** since framing is already correct, the resolution fix is a
+straight re-export or upscale at the *existing* composition. No re-cropping, so no pixels are
+thrown away and no extra upscaling is forced. That makes it substantially cheaper than the first
+revision of this report implied.
 
 ---
 
